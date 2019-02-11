@@ -10,6 +10,9 @@ public class MainWindow {
 
     private Controller controller;
 
+    private TextField hostField;
+    private TextField portField;
+
     private TextArea textArea;
 
     public MainWindow(Controller controller){
@@ -27,15 +30,24 @@ public class MainWindow {
 
         PasswordField pass = new PasswordField();
 
+        Label hostLabel = new Label("Host: ");
+        Label portLabel = new Label ("Port: ");
+
+        hostField = new TextField("pop.mail.ru");
+
+        portField = new TextField("995");
+
+        int port = Integer.parseInt(portField.getText());
+
         Button login = new Button("Login");
 
         ToggleGroup group  = new ToggleGroup();
 
         RadioButton connect = new RadioButton("connect");
 
-        connect.setSelected(true);
-        
-       connect.setOnAction(e-> controller.connect());
+        ComboBox<String> commands = new ComboBox<>();
+
+       connect.setOnAction(e-> controller.connect(hostField.getText(),port));
 
         connect.setToggleGroup(group);
 
@@ -48,11 +60,10 @@ public class MainWindow {
 
 
 
+        vBox.getChildren().addAll(userLabel,user,passLabel,pass,hostLabel,hostField,portLabel,portField,login,connect,disconnect,textArea);
 
-        vBox.getChildren().addAll(userLabel,user,passLabel,pass,login,connect,disconnect,textArea);
 
-
-        stage.setScene(new Scene(vBox,500,500));
+        stage.setScene(new Scene(vBox,500,1000));
 
         stage.show();
     }

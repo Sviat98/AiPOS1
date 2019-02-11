@@ -1,10 +1,12 @@
 package model;
 
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.Socket;
 
 public class POP3Connection {
-   private Socket socket = null;
+   private SSLSocket socket = null;
     private BufferedReader inputStream = null;
     private BufferedWriter outputStream = null;
     private String response;
@@ -17,23 +19,23 @@ public class POP3Connection {
 
        }
 
-       public void connect() throws POP3ConnectionException{
+       public void connect(String host, int port) throws POP3ConnectionException{
            try {
 
-               socket = new Socket("pop.mail.ru", 110);
+               SSLSocketFactory factory=(SSLSocketFactory) SSLSocketFactory.getDefault();
 
+               socket=(SSLSocket) factory.createSocket(host,port);
 
                inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                outputStream = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-               //createResponse();
+              //createResponse();
 
                //String line = inputStream.readLine();
 
                //System.out.println(line);
 
-               //System.out.println("OK connection");
 
            }
            catch (IOException e){

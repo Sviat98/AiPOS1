@@ -14,13 +14,15 @@ public class Controller {
 
     }
 
-    public void connect() {
+    public void connect(String host,int port) {
         try {
-            pop3Connection.connect();
+            pop3Connection.connect(host,port);
             mainWindow.writeMessage(pop3Connection.createResponse());
-            mainWindow.writeMessage("OK connection");
+
+
         }
         catch(POP3ConnectionException e){
+
 
         }
     }
