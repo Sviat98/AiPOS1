@@ -30,7 +30,7 @@ public class POP3Connection {
 
                outputStream = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-              //createResponse();
+                createResponse();
 
                //String line = inputStream.readLine();
 
@@ -63,17 +63,13 @@ public class POP3Connection {
         return socket != null && socket.isConnected();
        }
 
-    public String createResponse() throws POP3ConnectionException{
+    public void createResponse() throws POP3ConnectionException{
         response = null;
         StringBuilder result = new StringBuilder();
         try{
             String data = inputStream.readLine();
             result.append(data);
-            result.append("\n");
             response = result.toString();
-
-            return response;
-
         }
         catch (IOException e){
             throw new POP3ConnectionException("Error while recieving response");

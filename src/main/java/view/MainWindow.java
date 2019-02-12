@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import commands.CommandName;
+
 
 public class MainWindow {
 
@@ -14,6 +16,7 @@ public class MainWindow {
     private TextField portField;
 
     private TextArea textArea;
+
 
     public MainWindow(Controller controller){
         VBox vBox = new VBox();
@@ -47,6 +50,21 @@ public class MainWindow {
 
         ComboBox<String> commands = new ComboBox<>();
 
+        for(CommandName commandName : CommandName.values()){
+            commands.getItems().addAll(commandName.toString());
+        }
+
+
+        TextField paramField = new TextField();
+
+        Button sendCommand = new Button("send");
+
+        sendCommand.setOnAction(e->{
+                if(commands.getSelectionModel().getSelectedItem() != null){
+                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),paramField.getText());
+                }
+        });
+
        connect.setOnAction(e-> controller.connect(hostField.getText(),port));
 
         connect.setToggleGroup(group);
@@ -60,7 +78,8 @@ public class MainWindow {
 
 
 
-        vBox.getChildren().addAll(userLabel,user,passLabel,pass,hostLabel,hostField,portLabel,portField,login,connect,disconnect,textArea);
+        vBox.getChildren().addAll(userLabel,user,passLabel,pass,hostLabel,hostField,portLabel,portField,
+                login,connect,disconnect,textArea,commands,paramField,sendCommand);
 
 
         stage.setScene(new Scene(vBox,500,1000));
