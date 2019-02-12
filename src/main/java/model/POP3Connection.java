@@ -70,6 +70,8 @@ public class POP3Connection {
             String data = inputStream.readLine();
             result.append(data);
             response = result.toString();
+
+
         }
         catch (IOException e){
             throw new POP3ConnectionException("Error while recieving response");

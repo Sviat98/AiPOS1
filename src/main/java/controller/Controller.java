@@ -8,7 +8,6 @@ import model.POP3Connection;
 import model.POP3ConnectionException;
 import view.MainWindow;
 
-import static commands.CommandCreator.createCommand;
 
 public class Controller {
     private MainWindow mainWindow;

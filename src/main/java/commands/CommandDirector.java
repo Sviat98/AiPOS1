@@ -12,6 +12,11 @@ public class CommandDirector {
         commandMap.put(CommandName.PASS,new Pass());
         commandMap.put(CommandName.NOOP,new Noop());
         commandMap.put(CommandName.LIST,new List());
+        commandMap.put(CommandName.QUIT,new Quit());
+        commandMap.put(CommandName.DELE,new Dele());
+        commandMap.put(CommandName.RSET,new Rset());
+        commandMap.put(CommandName.STAT,new Stat());
+
     }
 
     public Command getCommand(String name){

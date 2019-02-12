@@ -17,6 +17,9 @@ public class MainWindow {
 
     private TextArea textArea;
 
+    private boolean connected = false;
+    private boolean autorized = false;
+
 
     public MainWindow(Controller controller){
         VBox vBox = new VBox();
@@ -58,6 +61,7 @@ public class MainWindow {
         TextField paramField = new TextField();
 
         Button sendCommand = new Button("send");
+
 
         sendCommand.setOnAction(e->{
                 if(commands.getSelectionModel().getSelectedItem() != null){
