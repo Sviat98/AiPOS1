@@ -22,9 +22,9 @@ public class Controller {
 
     public void connect(String host, int port) {
         try {
-            mainWindow.writeMessage("[CLIENT]: connected to host "+host+", port "+port);
+            mainWindow.writeMessage("[CLIENT] : connected to host "+host+", port "+port);
             pop3Connection.connect(host, port);
-            mainWindow.writeMessage("[SERVER]: "+pop3Connection.getResponse());
+            mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
 
 
         } catch (POP3ConnectionException e) {
@@ -36,9 +36,9 @@ public class Controller {
     public void disconnect() {
         try {
 
-            mainWindow.writeMessage("[CLIENT]: disconnected");
+            mainWindow.writeMessage("[CLIENT] : disconnected");
             pop3Connection.disconnect();
-            mainWindow.writeMessage("[SERVER]: "+pop3Connection.getResponse());
+            mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
 
         } catch (POP3ConnectionException e) {
 
@@ -50,10 +50,9 @@ public class Controller {
         try{
             CommandDirector director = new CommandDirector();
             Command command= director.getCommand(name.toString());
-            mainWindow.writeMessage("[CLIENT]: "+name.toString()+" "+parameters);
+            mainWindow.writeMessage("[CLIENT] : "+name.toString()+" "+parameters);
             String result = command.execute(parameters,pop3Connection);
-            mainWindow.writeMessage("[SERVER]: "+result);
-            //mainWindow.writeMessage(pop3Connection.createResponse());
+            mainWindow.writeMessage("[SERVER] : "+result);
 
             return true;
         }

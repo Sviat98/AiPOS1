@@ -10,6 +10,8 @@ public class CommandDirector {
         commandMap = new HashMap<>();
         commandMap.put(CommandName.USER,new User());
         commandMap.put(CommandName.PASS,new Pass());
+        commandMap.put(CommandName.NOOP,new Noop());
+        commandMap.put(CommandName.LIST,new List());
     }
 
     public Command getCommand(String name){
