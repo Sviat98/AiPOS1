@@ -1,8 +1,12 @@
 package view;
 
+import commands.CommandDirector;
 import controller.Controller;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import commands.CommandName;
@@ -17,8 +21,12 @@ public class MainWindow {
 
     private TextArea textArea;
 
-    private boolean connected = false;
-    private boolean autorized = false;
+    private GridPane connection;
+    private GridPane login;
+    private HBox commandPane;
+
+
+
 
 
     public MainWindow(Controller controller){
@@ -29,31 +37,76 @@ public class MainWindow {
 
         textArea.setEditable(false);
 
+        connection  = new GridPane();
+
+        connection.setAlignment(Pos.TOP_CENTER);
+
+
+        login = new GridPane();
+        login.setAlignment(Pos.TOP_CENTER);
+
+
+        login.setDisable(true);
+
+        commandPane = new HBox();
+        commandPane.setDisable(true);
+
+
         Label userLabel = new Label("Username: ");
+        login.add(userLabel,0,0);
+
         Label passLabel = new Label ("Password: ");
+        login.add(passLabel,0,1);
 
         TextField user = new TextField();
+        login.add(user,1,0);
 
         PasswordField pass = new PasswordField();
+        login.add(pass,1,1);
 
         Label hostLabel = new Label("Host: ");
+        connection.add(hostLabel,0,0);
+
         Label portLabel = new Label ("Port: ");
+        connection.add(portLabel,0,1);
 
         hostField = new TextField("pop.mail.ru");
+        connection.add(hostField,1,0);
 
         portField = new TextField("995");
+        connection.add(portField,1,1);
 
         int port = Integer.parseInt(portField.getText());
 
-        Button login = new Button("Login");
+        Button loginButton = new Button("Login");
+        login.add(loginButton,2,0);
 
-        ToggleGroup group  = new ToggleGroup();
+        loginButton.setOnAction(e->controller.authorize(user.getText(),pass.getText()));
+
+
+
+        ToggleGroup connectGroup  = new ToggleGroup();
 
         RadioButton connect = new RadioButton("connect");
+        connect.setToggleGroup(connectGroup);
+
+        connection.add(connect,2,0);
+
+
+        RadioButton disconnect = new RadioButton("disconnect");
+
+        disconnect.setToggleGroup(connectGroup);
+        connection.add(disconnect,2,1);
 
         ComboBox<String> commands = new ComboBox<>();
 
+
+
         for(CommandName commandName : CommandName.values()){
+            boolean isNotInComboBox = new CommandDirector().isNotInComboBox(commandName);
+            if(isNotInComboBox){
+                continue;
+            }
             commands.getItems().addAll(commandName.toString());
         }
 
@@ -69,21 +122,17 @@ public class MainWindow {
                 }
         });
 
+        commandPane.getChildren().addAll(commands, paramField,sendCommand);
+
        connect.setOnAction(e-> controller.connect(hostField.getText(),port));
 
-        connect.setToggleGroup(group);
 
-
-        RadioButton disconnect = new RadioButton("disconnect");
-
-        disconnect.setToggleGroup(group);
 
         disconnect.setOnAction(e-> controller.disconnect());
 
 
 
-        vBox.getChildren().addAll(userLabel,user,passLabel,pass,hostLabel,hostField,portLabel,portField,
-                login,connect,disconnect,textArea,commands,paramField,sendCommand);
+        vBox.getChildren().addAll(connection,login,textArea,commandPane);
 
 
         stage.setScene(new Scene(vBox,500,1000));
@@ -97,4 +146,9 @@ public class MainWindow {
         textArea.appendText("\n");
     }
 
+    public void changeStateClient(boolean connected,boolean autorized){
+       login.setDisable(!connected && !autorized);
+       commandPane.setDisable(!autorized);
+      //commandPane.setDisable(!connected && !autorized);
+    }
 }

@@ -1,9 +1,6 @@
 package controller;
 
-import commands.Command;
-import commands.CommandDirector;
-import commands.CommandName;
-import commands.POP3ClientException;
+import commands.*;
 import model.POP3Connection;
 import model.POP3ConnectionException;
 import view.MainWindow;
@@ -12,6 +9,9 @@ import view.MainWindow;
 public class Controller {
     private MainWindow mainWindow;
     private POP3Connection pop3Connection;
+
+    private boolean connected;
+    private boolean autorized;
 
     public Controller() {
         mainWindow = new MainWindow(this);
@@ -25,9 +25,11 @@ public class Controller {
             pop3Connection.connect(host, port);
             mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
 
+            updateStateClient(true,autorized);
+
 
         } catch (POP3ConnectionException e) {
-
+            mainWindow.writeMessage("[SERVER] : "+e.getMessage());
 
         }
     }
@@ -38,10 +40,19 @@ public class Controller {
             mainWindow.writeMessage("[CLIENT] : disconnected");
             pop3Connection.disconnect();
             mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
+            updateStateClient(false,autorized);
 
         } catch (POP3ConnectionException e) {
-
+            mainWindow.writeMessage("[SERVER] : "+e.getMessage());
         }
+    }
+
+    public void authorize(String username,String password){
+        execute(CommandName.USER,username);
+        boolean state = execute(CommandName.PASS,password);
+
+        updateStateClient(connected,state);
+
     }
 
 
@@ -55,10 +66,19 @@ public class Controller {
 
             return true;
         }
-        catch ( POP3ClientException e){
-            e.getMessage();
+        catch ( POP3ClientException | InvaldInputException e){
+            mainWindow.writeMessage("[SERVER] : "+e.getMessage());
         }
 
         return false;
+    }
+
+    public void updateStateClient(boolean connected, boolean autorized){
+        this.connected = connected;
+        this.autorized = autorized;
+
+        mainWindow.changeStateClient(connected,autorized);
+
+
     }
 }

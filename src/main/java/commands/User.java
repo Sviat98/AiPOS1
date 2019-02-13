@@ -7,15 +7,14 @@ import static commands.CommandCreator.createCommand;
 
 public class User implements Command{
     @Override
-    public String execute(String parameters, POP3Connection connection) throws POP3ClientException{
+    public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvaldInputException{
         try{
-            //if(!parameters.isEmpty()){
+            if(parameters == null || parameters.length() == 0)throw new InvaldInputException("Invalid input");
                 String command = createCommand(CommandName.USER,parameters);
 
                 connection.sendCommand(command);
                 return connection.getResponse();
-            //}
-            //else throw
+
         }
         catch (POP3ConnectionException e){
             throw new POP3ClientException(e.getMessage());

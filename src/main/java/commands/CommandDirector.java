@@ -1,10 +1,12 @@
 package commands;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandDirector {
     private Map<CommandName,Command> commandMap;
+    private java.util.List<CommandName> commandNameList;
 
     public CommandDirector() {
         commandMap = new HashMap<>();
@@ -16,7 +18,19 @@ public class CommandDirector {
         commandMap.put(CommandName.DELE,new Dele());
         commandMap.put(CommandName.RSET,new Rset());
         commandMap.put(CommandName.STAT,new Stat());
+        commandMap.put(CommandName.RETR, new Retr());
+        commandMap.put(CommandName.TOP, new Top());
+        commandMap.put(CommandName.UIDL, new Uidl());
 
+        commandNameList = new ArrayList<>();
+        commandNameList.add(CommandName.USER);
+        commandNameList.add(CommandName.PASS);
+        commandNameList.add(CommandName.QUIT);
+
+    }
+
+    public boolean isNotInComboBox (CommandName commandName){
+        return commandNameList.contains(commandName);
     }
 
     public Command getCommand(String name){

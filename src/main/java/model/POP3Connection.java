@@ -70,6 +70,9 @@ public class POP3Connection {
             String data = inputStream.readLine();
             result.append(data);
             response = result.toString();
+            if(response.startsWith("-ERR")){
+                throw new POP3ConnectionException(response);
+            }
 
 
         }
