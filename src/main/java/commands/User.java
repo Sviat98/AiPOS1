@@ -7,9 +7,9 @@ import static commands.CommandCreator.createCommand;
 
 public class User implements Command{
     @Override
-    public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvaldInputException{
+    public String execute(String parameters, POP3Connection connection) throws POP3ClientException, InvalidInputException {
         try{
-            if(parameters == null || parameters.length() == 0)throw new InvaldInputException("Invalid input");
+            if(parameters == null || parameters.length() == 0)throw new InvalidInputException("Invalid input. You must enter username");
                 String command = createCommand(CommandName.USER,parameters);
 
                 connection.sendCommand(command);

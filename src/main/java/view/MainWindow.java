@@ -2,6 +2,7 @@ package view;
 
 import commands.CommandDirector;
 import controller.Controller;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -31,6 +32,8 @@ public class MainWindow {
 
     public MainWindow(Controller controller){
         VBox vBox = new VBox();
+        vBox.setSpacing(10);
+        vBox.setPadding(new Insets(10));
         Stage stage = new Stage();
 
         textArea  = new TextArea();
@@ -38,11 +41,16 @@ public class MainWindow {
         textArea.setEditable(false);
 
         connection  = new GridPane();
+        connection.setHgap(10);
+        connection.setVgap(10);
 
         connection.setAlignment(Pos.TOP_CENTER);
 
 
         login = new GridPane();
+        login.setPadding(new Insets(10));
+        login.setVgap(10);
+        login.setHgap(10);
         login.setAlignment(Pos.TOP_CENTER);
 
 
@@ -50,6 +58,8 @@ public class MainWindow {
 
         commandPane = new HBox();
         commandPane.setDisable(true);
+        commandPane.setAlignment(Pos.TOP_CENTER);
+        commandPane.setSpacing(10);
 
 
         Label userLabel = new Label("Username: ");
@@ -78,11 +88,25 @@ public class MainWindow {
 
         int port = Integer.parseInt(portField.getText());
 
+
         Button loginButton = new Button("Login");
         login.add(loginButton,2,0);
 
-        loginButton.setOnAction(e->controller.authorize(user.getText(),pass.getText()));
+        Button quitFromMailbox = new Button("Quit");
+        login.add(quitFromMailbox,2,1);
+        quitFromMailbox.setDisable(true);
 
+        loginButton.setOnAction(e->{
+            controller.authorize(user.getText(),pass.getText());
+            loginButton.setDisable(true);
+            quitFromMailbox.setDisable(false);
+        });
+
+        quitFromMailbox.setOnAction(e->{
+            controller.quit();
+            loginButton.setDisable(false);
+            quitFromMailbox.setDisable(true);
+        });
 
 
         ToggleGroup connectGroup  = new ToggleGroup();
@@ -113,7 +137,9 @@ public class MainWindow {
 
         TextField paramField = new TextField();
 
-        Button sendCommand = new Button("send");
+        Button sendCommand = new Button("Send");
+
+
 
 
         sendCommand.setOnAction(e->{
@@ -135,7 +161,7 @@ public class MainWindow {
         vBox.getChildren().addAll(connection,login,textArea,commandPane);
 
 
-        stage.setScene(new Scene(vBox,500,1000));
+        stage.setScene(new Scene(vBox,500,500));
 
         stage.show();
     }

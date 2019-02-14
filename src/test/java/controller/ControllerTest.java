@@ -25,4 +25,13 @@ public class ControllerTest {
     @Test
     public void execute() {
     }
+
+    @Test
+    public void authorize() {
+
+    }
+
+    @Test
+    public void updateStateClient() {
+    }
 }

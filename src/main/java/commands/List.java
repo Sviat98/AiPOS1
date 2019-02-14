@@ -7,12 +7,19 @@ import static commands.CommandCreator.createCommand;
 
 public class List implements Command{
     @Override
-    public String execute(String parameters, POP3Connection connection) throws POP3ClientException {
+    public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvalidInputException{
         try{
-            String command = createCommand(CommandName.LIST);
-            connection.sendCommand(command);
+            if(parameters.isEmpty()){
+                return connection.getResponse();
+            }
+            else{
+                if(!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input. You must enter a number");
+                String command = createCommand(CommandName.LIST,parameters);
+                connection.sendCommand(command);
 
-            return connection.getResponse();
+                return connection.getResponse();
+            }
+
 
         }
         catch (POP3ConnectionException e){

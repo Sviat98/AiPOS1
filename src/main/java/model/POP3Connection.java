@@ -32,10 +32,6 @@ public class POP3Connection {
 
                 createResponse();
 
-               //String line = inputStream.readLine();
-
-               //System.out.println(line);
-
 
            }
            catch (IOException e){

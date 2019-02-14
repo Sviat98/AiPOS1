@@ -11,7 +11,8 @@ public class Controller {
     private POP3Connection pop3Connection;
 
     private boolean connected;
-    private boolean autorized;
+    private boolean authorized;
+
 
     public Controller() {
         mainWindow = new MainWindow(this);
@@ -25,7 +26,7 @@ public class Controller {
             pop3Connection.connect(host, port);
             mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
 
-            updateStateClient(true,autorized);
+            updateStateClient(true,authorized);
 
 
         } catch (POP3ConnectionException e) {
@@ -40,7 +41,7 @@ public class Controller {
             mainWindow.writeMessage("[CLIENT] : disconnected");
             pop3Connection.disconnect();
             mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
-            updateStateClient(false,autorized);
+            updateStateClient(false,authorized);
 
         } catch (POP3ConnectionException e) {
             mainWindow.writeMessage("[SERVER] : "+e.getMessage());
@@ -55,6 +56,11 @@ public class Controller {
 
     }
 
+    public void quit(){
+        execute(CommandName.QUIT,"");
+        updateStateClient(connected,false);
+    }
+
 
     public boolean execute(CommandName name, String parameters){
         try{
@@ -66,7 +72,7 @@ public class Controller {
 
             return true;
         }
-        catch ( POP3ClientException | InvaldInputException e){
+        catch ( POP3ClientException | InvalidInputException e){
             mainWindow.writeMessage("[SERVER] : "+e.getMessage());
         }
 
@@ -75,10 +81,9 @@ public class Controller {
 
     public void updateStateClient(boolean connected, boolean autorized){
         this.connected = connected;
-        this.autorized = autorized;
+        this.authorized = autorized;
 
         mainWindow.changeStateClient(connected,autorized);
-
 
     }
 }
