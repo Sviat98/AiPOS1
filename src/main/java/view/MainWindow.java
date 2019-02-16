@@ -167,14 +167,11 @@ public class MainWindow {
     }
 
     public void writeMessage (String message){
-
         textArea.appendText(message);
-        textArea.appendText("\n");
     }
 
     public void changeStateClient(boolean connected,boolean autorized){
        login.setDisable(!connected && !autorized);
        commandPane.setDisable(!autorized);
-      //commandPane.setDisable(!connected && !autorized);
     }
 }

@@ -3,6 +3,7 @@ package controller;
 import commands.*;
 import model.POP3Connection;
 import model.POP3ConnectionException;
+import org.apache.log4j.Logger;
 import view.MainWindow;
 
 
@@ -13,10 +14,13 @@ public class Controller {
     private boolean connected;
     private boolean authorized;
 
+    private static final Logger logger =  Logger.getLogger(Controller.class);
+
 
     public Controller() {
         mainWindow = new MainWindow(this);
         pop3Connection = new POP3Connection();
+
 
     }
 
@@ -24,13 +28,16 @@ public class Controller {
         try {
             mainWindow.writeMessage("[CLIENT] : connected to host "+host+", port "+port);
             pop3Connection.connect(host, port);
-            mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
-
+            mainWindow.writeMessage("\n[SERVER] : "+pop3Connection.getResponse());
+            logger.info("Connected");
             updateStateClient(true,authorized);
 
 
         } catch (POP3ConnectionException e) {
-            mainWindow.writeMessage("[SERVER] : "+e.getMessage());
+            e.printStackTrace();
+            logger.error(e);
+            //logger.error(e.printStackTrace());
+            mainWindow.writeMessage("\n[SERVER] : "+e.getMessage());
 
         }
     }
@@ -40,11 +47,11 @@ public class Controller {
 
             mainWindow.writeMessage("[CLIENT] : disconnected");
             pop3Connection.disconnect();
-            mainWindow.writeMessage("[SERVER] : "+pop3Connection.getResponse());
+            mainWindow.writeMessage("\n[SERVER] : "+pop3Connection.getResponse());
             updateStateClient(false,authorized);
 
         } catch (POP3ConnectionException e) {
-            mainWindow.writeMessage("[SERVER] : "+e.getMessage());
+            mainWindow.writeMessage("\n[SERVER] : "+e.getMessage());
         }
     }
 
@@ -53,6 +60,9 @@ public class Controller {
         boolean state = execute(CommandName.PASS,password);
 
         updateStateClient(connected,state);
+
+        if(state)
+            execute(CommandName.LIST,"");
 
     }
 
@@ -68,12 +78,12 @@ public class Controller {
             Command command= director.getCommand(name.toString());
             mainWindow.writeMessage("[CLIENT] : "+name.toString()+" "+parameters);
             String result = command.execute(parameters,pop3Connection);
-            mainWindow.writeMessage("[SERVER] : "+result);
+            mainWindow.writeMessage("\n[SERVER] : "+result);
 
             return true;
         }
         catch ( POP3ClientException | InvalidInputException e){
-            mainWindow.writeMessage("[SERVER] : "+e.getMessage());
+            mainWindow.writeMessage("\n[SERVER] : "+e.getMessage());
         }
 
         return false;

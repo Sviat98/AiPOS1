@@ -3,6 +3,7 @@ package controller;
 import model.POP3Connection;
 import model.POP3ConnectionException;
 import org.junit.Test;
+import org.mockito.Mockito.*;
 
 import static org.junit.Assert.*;
 

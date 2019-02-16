@@ -10,7 +10,12 @@ public class List implements Command{
     public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvalidInputException{
         try{
             if(parameters.isEmpty()){
-                return connection.getResponse();
+
+                String command  = createCommand(CommandName.LIST);
+
+                connection.sendCommand(command);
+                String response = connection.getResponse();
+                return connection.getAllResponseLines(response);
             }
             else{
                 if(!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input. You must enter a number");
