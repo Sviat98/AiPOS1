@@ -40,6 +40,8 @@ public class MainWindow {
 
         textArea.setEditable(false);
 
+        textArea.setMinSize(500,500);
+
         connection  = new GridPane();
         connection.setHgap(10);
         connection.setVgap(10);
@@ -161,7 +163,7 @@ public class MainWindow {
         vBox.getChildren().addAll(connection,login,textArea,commandPane);
 
 
-        stage.setScene(new Scene(vBox,500,500));
+        stage.setScene(new Scene(vBox,600,800));
 
         stage.show();
     }

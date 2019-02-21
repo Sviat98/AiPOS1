@@ -29,14 +29,15 @@ public class Controller {
             mainWindow.writeMessage("[CLIENT] : connected to host "+host+", port "+port);
             pop3Connection.connect(host, port);
             mainWindow.writeMessage("\n[SERVER] : "+pop3Connection.getResponse());
-            logger.info("Connected");
+            logger.info("CONNECTED");
             updateStateClient(true,authorized);
 
 
         } catch (POP3ConnectionException e) {
-            e.printStackTrace();
-            logger.error(e);
-            //logger.error(e.printStackTrace());
+            //e.printStackTrace();
+            //(for StackTraceElement[] :)
+            logger.error("Error while connection: ",e.fillInStackTrace());
+            //logger.error(e);
             mainWindow.writeMessage("\n[SERVER] : "+e.getMessage());
 
         }
@@ -49,9 +50,11 @@ public class Controller {
             pop3Connection.disconnect();
             mainWindow.writeMessage("\n[SERVER] : "+pop3Connection.getResponse());
             updateStateClient(false,authorized);
+            logger.info("DISCONNECTED");
 
         } catch (POP3ConnectionException e) {
             mainWindow.writeMessage("\n[SERVER] : "+e.getMessage());
+            logger.error("Error while disconnection",e);
         }
     }
 
