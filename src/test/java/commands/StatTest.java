@@ -6,14 +6,21 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class UserTest {
+public class StatTest {
 
     @Test
     public void execute() throws POP3ConnectionException {
         POP3Connection connection = new POP3Connection();
         connection.connect("pop.mail.ru", 995);
+
         String command = "USER POP3Irina@mail.ru\n";
         connection.sendCommand(command);
-        assertEquals("+OK\n", connection.getResponse());
+
+        String command1 = "PASS POP12345\n";
+        connection.sendCommand(command1);
+
+        String command2 = "STAT\n";
+        connection.sendCommand(command2);
+        assertEquals("+OK 3 339273\n", connection.getResponse());
     }
 }
