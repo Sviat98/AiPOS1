@@ -26,10 +26,6 @@ public class MainWindow {
     private GridPane login;
     private HBox commandPane;
 
-
-
-
-
     public MainWindow(Controller controller){
         VBox vBox = new VBox();
         vBox.setSpacing(10);
