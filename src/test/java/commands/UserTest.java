@@ -23,6 +23,6 @@ public class UserTest {
          connection.sendCommand(command);
 
 
-         assertEquals("+OK",connection.getResponse());
+         assertEquals("+OK\n",connection.getResponse());
     }
 }

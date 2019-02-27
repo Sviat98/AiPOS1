@@ -1,6 +1,12 @@
 package model;
 
+import org.apache.commons.io.input.ReaderInputStream;
+import org.apache.james.mime4j.io.BufferedLineReaderInputStream;
+import org.apache.james.mime4j.io.LineReaderInputStream;
+import org.apache.james.mime4j.io.LineReaderInputStreamAdaptor;
 import org.apache.james.mime4j.message.Message;
+import org.apache.james.mime4j.message.Multipart;
+import org.apache.james.mime4j.util.ByteArrayBuffer;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -11,11 +17,13 @@ public class POP3Connection {
     private BufferedReader inputStream = null;
     private BufferedWriter outputStream = null;
     private String response;
+    //private javax.mail.Message
+    private Message message;
+    private String resultMessage;
 
 
 
     public POP3Connection(){
-
 
 
        }
@@ -32,7 +40,8 @@ public class POP3Connection {
 
                outputStream = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                createResponse();
+
+               createResponse();
 
 
            }
@@ -126,17 +135,53 @@ public class POP3Connection {
                 }
             }
 
-    public String createMessage(){
-
-
-        Message message = new Message();
-
-        message.setFrom();
-        message.setSubject("");
-        message.setTo();
-        //message.setDate();
-
-
-        return message.toString();
+    public String getResultMessage() {
+        return resultMessage;
     }
+
+    public void createMessage() throws POP3ConnectionException{
+
+        try{
+
+
+            ReaderInputStream readerInputStream = new ReaderInputStream(inputStream,"UTF-8");
+            BufferedLineReaderInputStream bufferedLineReaderInputStream = new BufferedLineReaderInputStream(readerInputStream,10000);
+            // message = new Message(socket.getInputStream());
+
+            message = new Message(bufferedLineReaderInputStream);
+
+
+
+            StringBuilder fullMessage = new StringBuilder();
+
+            fullMessage.append("Message:\n");
+            fullMessage.append("Date: "+message.getDate().toString());
+            fullMessage.append("\n");
+            fullMessage.append("From: "+message.getFrom());
+            fullMessage.append("\n");
+            fullMessage.append("To: "+message.getTo());
+            fullMessage.append("\n");
+            fullMessage.append("Subject: "+message.getSubject());
+            fullMessage.append("\n");
+
+            resultMessage = fullMessage.toString();
+
+            if(message.isMultipart()){
+                Multipart multipart = (Multipart) message.getBody();
+            }
+
+
+
+            //System.out.println("To: " + message.getTo());
+            //System.out.println("From: " + message.getFrom());
+            //System.out.println("Subject: " + message.getSubject());
+
+        }
+        catch ( IOException e){
+            throw new POP3ConnectionException("Error while creating message");
+        }
+
+    }
+
+
 }

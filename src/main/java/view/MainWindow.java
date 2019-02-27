@@ -26,6 +26,10 @@ public class MainWindow {
     private GridPane login;
     private HBox commandPane;
 
+    private Button loginButton;
+
+    private Button quitFromMailbox;
+
 
 
 
@@ -91,23 +95,21 @@ public class MainWindow {
         int port = Integer.parseInt(portField.getText());
 
 
-        Button loginButton = new Button("Login");
+        loginButton = new Button("Login");
         login.add(loginButton,2,0);
 
-        Button quitFromMailbox = new Button("Quit");
+        quitFromMailbox = new Button("Quit");
         login.add(quitFromMailbox,2,1);
         quitFromMailbox.setDisable(true);
 
         loginButton.setOnAction(e->{
             controller.authorize(user.getText(),pass.getText());
-            loginButton.setDisable(true);
-            quitFromMailbox.setDisable(false);
+
         });
 
         quitFromMailbox.setOnAction(e->{
             controller.quit();
-            loginButton.setDisable(false);
-            quitFromMailbox.setDisable(true);
+
         });
 
 
@@ -174,6 +176,8 @@ public class MainWindow {
 
     public void changeStateClient(boolean connected,boolean autorized){
        login.setDisable(!connected && !autorized);
+       loginButton.setDisable(autorized);
+       quitFromMailbox.setDisable(!autorized);
        commandPane.setDisable(!autorized);
     }
 }

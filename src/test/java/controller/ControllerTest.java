@@ -24,7 +24,7 @@ public class ControllerTest {
 
         connection.connect("pop.mail.ru",995);
 
-        assertEquals("+OK",connection.getResponse());
+        assertEquals("+OK\n",connection.getResponse());
 
     }
 

@@ -17,9 +17,13 @@ public class Retr implements Command {
 
             connection.sendCommand(command);
 
-            String response = connection.getResponse();
+            //String response = connection.getResponse();
 
-            return connection.getAllResponseLines(response);
+            //return connection.getAllResponseLines(response);
+
+            connection.createMessage();
+
+            return connection.getResultMessage();
 
         }catch (POP3ConnectionException e){
             throw new POP3ClientException(e.getMessage());
