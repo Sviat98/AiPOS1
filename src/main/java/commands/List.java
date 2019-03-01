@@ -24,8 +24,6 @@ public class List implements Command{
 
                 return connection.getResponse();
             }
-
-
         }
         catch (POP3ConnectionException e){
             throw new POP3ClientException(e.getMessage());

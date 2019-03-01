@@ -14,11 +14,9 @@ public class Retr implements Command {
         try{
 
             String command = createCommand(CommandName.RETR,parameters);
-
             connection.sendCommand(command);
 
             String response = connection.getResponse();
-
             return connection.getAllResponseLines(response);
 
         }catch (POP3ConnectionException e){
@@ -29,8 +27,6 @@ public class Retr implements Command {
 
     public String createMessage(){
         Message message = new Message();
-
-
         return message.toString();
     }
 }

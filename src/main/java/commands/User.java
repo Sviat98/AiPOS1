@@ -14,7 +14,6 @@ public class User implements Command{
 
                 connection.sendCommand(command);
                 return connection.getResponse();
-
         }
         catch (POP3ConnectionException e){
             throw new POP3ClientException(e.getMessage());

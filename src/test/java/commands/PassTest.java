@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class DeleTest {
+public class PassTest {
 
     @Test
     public void execute() throws POP3ConnectionException {
@@ -16,11 +16,8 @@ public class DeleTest {
         String command = "USER POP3Irina@mail.ru\n";
         connection.sendCommand(command);
 
-        String command1 = "PASS POP12345\n";
-        connection.sendCommand(command1);
-
-        String command2 = "DELE 3\n";
+        String command2 = "PASS POP12345\n";
         connection.sendCommand(command2);
-        assertEquals("+OK message 3 deleted\n", connection.getResponse());
+        assertEquals("+OK Welcome!\n", connection.getResponse());
     }
 }

@@ -77,8 +77,6 @@ public class POP3Connection {
         catch (IOException e){
             throw new POP3ConnectionException("Error while recieving response");
         }
-
-
     }
 
 
@@ -119,7 +117,6 @@ public class POP3Connection {
                     outputStream.write(command);
                     outputStream.flush();
                     createResponse();
-
 
                 } catch (IOException e) {
                     throw new POP3ConnectionException("Error while sending command") ;
