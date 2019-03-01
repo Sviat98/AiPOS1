@@ -28,7 +28,6 @@ public class CommandDirector {
         commandNameList.add(CommandName.PASS);
         commandNameList.add(CommandName.QUIT);
         commandNameList.add(CommandName.MAILBOX);
-
     }
 
     public boolean isNotInComboBox (CommandName commandName){

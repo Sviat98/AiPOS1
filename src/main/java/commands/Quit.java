@@ -5,7 +5,6 @@ import model.POP3ConnectionException;
 
 import static commands.CommandCreator.createCommand;
 
-
 public class Quit implements Command {
     @Override
     public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvalidInputException {

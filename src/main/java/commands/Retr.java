@@ -6,7 +6,6 @@ import org.apache.james.mime4j.message.Message;
 
 import static commands.CommandCreator.createCommand;
 
-
 public class Retr implements Command {
     @Override
     public String execute(String parameters, POP3Connection connection) throws POP3ClientException, InvalidInputException {
@@ -14,19 +13,20 @@ public class Retr implements Command {
         try{
 
             String command = createCommand(CommandName.RETR,parameters);
-            connection.sendCommand(command);
 
-            String response = connection.getResponse();
-            return connection.getAllResponseLines(response);
+            connection.sendCommand(command);
+            connection.createMessage();
+
+            return connection.getResultMessage();
 
         }catch (POP3ConnectionException e){
             throw new POP3ClientException(e.getMessage());
         }
-
     }
 
     public String createMessage(){
         Message message = new Message();
+
         return message.toString();
     }
 }

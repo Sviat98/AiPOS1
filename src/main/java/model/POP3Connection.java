@@ -1,21 +1,28 @@
 package model;
 
-import org.apache.james.mime4j.message.Message;
+import org.apache.james.mime4j.message.*;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
+import java.util.ArrayList;
 
 public class POP3Connection {
    private SSLSocket socket = null;
     private BufferedReader inputStream = null;
     private BufferedWriter outputStream = null;
     private String response;
+    private Message message;
+    private String resultMessage;
+    private StringBuffer txtPart ;
+    private StringBuffer htmlPart;
+    private ArrayList<BodyPart> attachments;
+
+
 
 
 
     public POP3Connection(){
-
 
 
        }
@@ -32,7 +39,8 @@ public class POP3Connection {
 
                outputStream = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                createResponse();
+
+               createResponse();
 
 
            }
@@ -77,6 +85,8 @@ public class POP3Connection {
         catch (IOException e){
             throw new POP3ConnectionException("Error while recieving response");
         }
+
+
     }
 
 
@@ -113,27 +123,128 @@ public class POP3Connection {
 
             public void sendCommand(String command) throws POP3ConnectionException {
                 try {
-                    //inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     outputStream.write(command);
                     outputStream.flush();
                     createResponse();
+
 
                 } catch (IOException e) {
                     throw new POP3ConnectionException("Error while sending command") ;
                 }
             }
 
-    public String createMessage(){
-
-
-        Message message = new Message();
-
-        message.setFrom();
-        message.setSubject("");
-        message.setTo();
-        //message.setDate();
-
-
-        return message.toString();
+    public String getResultMessage() {
+        return resultMessage;
     }
+
+
+
+    public void createMessage() throws POP3ConnectionException{
+
+        try{
+            txtPart = new StringBuffer();
+            htmlPart = new StringBuffer();
+            attachments = new ArrayList<>();
+
+            ByteArrayInputStream bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes());
+
+            message = new Message(bais);
+
+
+            StringBuilder fullMessage = new StringBuilder();
+
+
+            fullMessage.append("Message:\n");
+            fullMessage.append("Date: "+message.getDate());
+            fullMessage.append("\n");
+            fullMessage.append("From: "+message.getFrom());
+            fullMessage.append("\n");
+            fullMessage.append("To: "+message.getTo());
+            fullMessage.append("\n");
+            fullMessage.append("Subject: "+message.getSubject());
+            fullMessage.append("\n");
+
+
+
+
+
+            if(message.isMultipart()){
+                Multipart multipart = (Multipart) message.getBody();
+                parseBodyParts(multipart);
+            }
+            else{
+                String text = getTxtPart(message);
+                txtPart.append(text);
+            }
+
+
+            fullMessage.append(txtPart.toString());
+
+            fullMessage.append("\n");
+
+            fullMessage.append(htmlPart.toString());
+
+            fullMessage.append("\n");
+
+            for(BodyPart attach : attachments){
+                String filename = attach.getFilename();
+                FileOutputStream fos = new FileOutputStream(filename);
+
+                try{
+                    BinaryBody binaryBody = (BinaryBody) attach.getBody();
+                    binaryBody.writeTo(fos);
+                }
+                finally {
+
+                    fos.close();
+                    attachments.remove(attach);
+                }
+
+            }
+
+
+            resultMessage = fullMessage.toString();
+
+            txtPart.delete(0,txtPart.length());
+
+            htmlPart.delete(0,htmlPart.length());
+
+            
+        }
+        catch ( IOException e){
+            throw new POP3ConnectionException("Error while creating message");
+        }
+
+    }
+
+    private String getTxtPart(Entity part) throws IOException{
+
+            TextBody tb = (TextBody) part.getBody();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            tb.writeTo(baos);
+            //baos.flush();
+
+            return new String(baos.toByteArray());
+    }
+
+    private void parseBodyParts(Multipart multipart) throws IOException{
+            for(BodyPart bodyPart : multipart.getBodyParts()){
+                if(bodyPart.isMimeType("text/plain")){
+                    String txt = getTxtPart(bodyPart);
+                    txtPart.append(txt);
+                }
+                else if(bodyPart.isMimeType("text/html")){
+                    String html = getTxtPart(bodyPart);
+                    htmlPart.append(html);
+                }
+                else if(bodyPart.getDispositionType() != null && !bodyPart.getDispositionType().equals("")){
+                    attachments.add(bodyPart);
+                }
+         if(bodyPart.isMultipart()){
+           parseBodyParts((Multipart) bodyPart.getBody());
+         }
+            }
+    }
+
+
 }

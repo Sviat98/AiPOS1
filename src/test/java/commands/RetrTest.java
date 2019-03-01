@@ -2,11 +2,12 @@ package commands;
 
 import model.POP3Connection;
 import model.POP3ConnectionException;
+import org.apache.james.mime4j.message.Message;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class RsetTest {
+public class RetrTest {
 
     @Test
     public void execute() throws POP3ConnectionException {
@@ -19,12 +20,14 @@ public class RsetTest {
         String command2 = "PASS POP12345\n";
         connection.sendCommand(command2);
 
-        String command3 = "DELE 3\n";
+        String command3 = "RETR 1\n";
         connection.sendCommand(command3);
 
-        String command4 = "RSET\n";
-        connection.sendCommand(command4);
+        assertEquals("+OK 153005 octets\n", connection.getResponse());
+    }
 
-        assertEquals("+OK maildrop has 3 messages (339273 octets)\n", connection.getResponse());
+    @Test
+    public void createMessage() {
+
     }
 }

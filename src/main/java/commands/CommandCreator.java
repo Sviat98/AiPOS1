@@ -11,7 +11,6 @@ public class CommandCreator {
         }
 
         return fullCommand.toString();
-
     }
 
     public static String createCommand(CommandName name){

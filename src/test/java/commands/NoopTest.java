@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class RsetTest {
+public class NoopTest {
 
     @Test
     public void execute() throws POP3ConnectionException {
@@ -19,12 +19,9 @@ public class RsetTest {
         String command2 = "PASS POP12345\n";
         connection.sendCommand(command2);
 
-        String command3 = "DELE 3\n";
+        String command3 = "NOOP\n";
         connection.sendCommand(command3);
 
-        String command4 = "RSET\n";
-        connection.sendCommand(command4);
-
-        assertEquals("+OK maildrop has 3 messages (339273 octets)\n", connection.getResponse());
+        assertEquals("+OK \n", connection.getResponse());
     }
 }
