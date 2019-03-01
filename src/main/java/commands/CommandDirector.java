@@ -21,7 +21,6 @@ public class CommandDirector {
         commandMap.put(CommandName.RETR, new Retr());
         commandMap.put(CommandName.TOP, new Top());
         commandMap.put(CommandName.UIDL, new Uidl());
-        commandMap.put(CommandName.MAILBOX,new Mailbox());
 
         commandNameList = new ArrayList<>();
         commandNameList.add(CommandName.USER);

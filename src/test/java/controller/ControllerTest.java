@@ -20,7 +20,6 @@ public class ControllerTest {
 
     @Test
     public void connect() throws POP3ConnectionException {
-        //POP3Connection connection = new POP3Connection();
 
         connection.connect("pop.mail.ru",995);
 

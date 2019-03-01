@@ -218,7 +218,7 @@ public class POP3Connection {
 
             htmlPart.delete(0,htmlPart.length());
 
-            
+
         }
         catch ( IOException e){
             throw new POP3ConnectionException("Error while creating message");
