@@ -13,9 +13,10 @@ public class Top implements Command {
         try{
             connection.sendCommand(command);
 
-            String response = connection.getResponse();
 
-            return connection.getAllResponseLines(response);
+            connection.createMessage();
+
+            return connection.getResultMessage();
 
         }
         catch(POP3ConnectionException e){

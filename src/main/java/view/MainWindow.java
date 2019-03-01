@@ -75,9 +75,11 @@ public class MainWindow {
         login.add(passLabel,0,1);
 
         TextField user = new TextField();
+        user.setText("bashkevich.98@mail.ru");
         login.add(user,1,0);
 
         PasswordField pass = new PasswordField();
+        pass.setText("odavur14");
         login.add(pass,1,1);
 
         Label hostLabel = new Label("Host: ");

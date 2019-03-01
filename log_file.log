@@ -313,3 +313,424 @@ model.POP3ConnectionException: Cannot connect to server
 2019-02-27 22:31:38 INFO  Controller:32 - CONNECTED
 2019-02-27 22:35:18 INFO  Controller:32 - CONNECTED
 2019-02-27 22:39:22 INFO  Controller:32 - CONNECTED
+2019-02-28 09:47:55 ERROR Controller:39 - Error while connection: 
+model.POP3ConnectionException: Cannot connect to server
+	at controller.Controller.connect(Controller.java:39)
+	at view.MainWindow.lambda$new$3(MainWindow.java:157)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.ToggleButton.fire(ToggleButton.java:256)
+	at javafx.scene.control.RadioButton.fire(RadioButton.java:113)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:381)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$354(GlassViewEventHandler.java:417)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:416)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:748)
+2019-02-28 09:48:31 INFO  Controller:32 - CONNECTED
+2019-02-28 09:52:14 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 09:52:14 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 09:54:28 INFO  Controller:32 - CONNECTED
+2019-02-28 09:57:54 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 09:57:54 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 10:57:55 INFO  Controller:32 - CONNECTED
+2019-02-28 11:01:29 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 11:01:29 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 11:02:44 INFO  Controller:32 - CONNECTED
+2019-02-28 12:00:36 INFO  Controller:32 - CONNECTED
+2019-02-28 12:00:56 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 12:00:56 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 12:01:19 INFO  Controller:32 - CONNECTED
+2019-02-28 12:01:40 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 12:01:40 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 16:35:34 INFO  Controller:32 - CONNECTED
+2019-02-28 16:35:56 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 16:35:56 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 16:58:23 INFO  Controller:32 - CONNECTED
+2019-02-28 16:58:50 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-02-28 16:58:50 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 17:00:04 INFO  Controller:32 - CONNECTED
+2019-02-28 17:05:51 INFO  Controller:32 - CONNECTED
+2019-02-28 17:09:33 INFO  Controller:32 - CONNECTED
+2019-02-28 17:20:38 INFO  Controller:32 - CONNECTED
+2019-02-28 18:25:13 INFO  Controller:32 - CONNECTED
+2019-02-28 19:01:17 INFO  Controller:32 - CONNECTED
+2019-02-28 19:06:24 INFO  Controller:32 - CONNECTED
+2019-02-28 19:13:49 INFO  Controller:32 - CONNECTED
+2019-02-28 19:40:09 INFO  Controller:32 - CONNECTED
+2019-02-28 19:46:13 INFO  Controller:32 - CONNECTED
+2019-02-28 19:51:35 INFO  Controller:32 - CONNECTED
+2019-02-28 20:01:54 INFO  Controller:32 - CONNECTED
+2019-02-28 20:13:34 INFO  Controller:32 - CONNECTED
+2019-02-28 21:09:54 INFO  Controller:32 - CONNECTED
+2019-02-28 22:06:12 INFO  Controller:32 - CONNECTED
+2019-02-28 22:21:23 INFO  Controller:32 - CONNECTED
+2019-02-28 22:21:50 WARN  MimeEntity:305 - Invalid header encountered
+2019-02-28 22:51:05 INFO  Controller:32 - CONNECTED
+2019-02-28 22:51:35 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 01:20:44 ERROR Controller:39 - Error while connection: 
+model.POP3ConnectionException: Cannot connect to server
+	at controller.Controller.connect(Controller.java:39)
+	at view.MainWindow.lambda$new$3(MainWindow.java:157)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.ToggleButton.fire(ToggleButton.java:256)
+	at javafx.scene.control.RadioButton.fire(RadioButton.java:113)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:381)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$354(GlassViewEventHandler.java:417)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:416)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-01 01:22:03 ERROR Controller:39 - Error while connection: 
+model.POP3ConnectionException: Cannot connect to server
+	at controller.Controller.connect(Controller.java:39)
+	at view.MainWindow.lambda$new$3(MainWindow.java:157)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.ToggleButton.fire(ToggleButton.java:256)
+	at javafx.scene.control.RadioButton.fire(RadioButton.java:113)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:381)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$354(GlassViewEventHandler.java:417)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:416)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-01 01:22:16 INFO  Controller:32 - CONNECTED
+2019-03-01 01:23:59 INFO  Controller:32 - CONNECTED
+2019-03-01 01:24:25 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 01:24:25 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 01:24:25 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 01:24:51 INFO  Controller:32 - CONNECTED
+2019-03-01 01:25:22 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 01:25:22 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 01:26:21 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 01:26:21 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 01:28:32 INFO  Controller:32 - CONNECTED
+2019-03-01 01:32:15 INFO  Controller:32 - CONNECTED
+2019-03-01 01:32:46 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 01:33:00 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 01:33:00 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 02:27:17 ERROR Controller:39 - Error while connection: 
+model.POP3ConnectionException: Cannot connect to server
+	at controller.Controller.connect(Controller.java:39)
+	at view.MainWindow.lambda$new$3(MainWindow.java:157)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8413)
+	at javafx.scene.control.ToggleButton.fire(ToggleButton.java:256)
+	at javafx.scene.control.RadioButton.fire(RadioButton.java:113)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:182)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:96)
+	at com.sun.javafx.scene.control.skin.BehaviorSkinBase$1.handle(BehaviorSkinBase.java:89)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:218)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3757)
+	at javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485)
+	at javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:381)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$354(GlassViewEventHandler.java:417)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:416)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:555)
+	at com.sun.glass.ui.View.notifyMouse(View.java:937)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$null$148(WinApplication.java:191)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-01 02:27:26 INFO  Controller:32 - CONNECTED
+2019-03-01 02:28:29 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 02:28:29 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 02:28:29 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 02:28:29 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 02:28:29 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 02:30:30 INFO  Controller:32 - CONNECTED
+2019-03-01 02:31:45 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 02:31:45 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 02:31:45 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 02:32:17 INFO  Controller:32 - CONNECTED
+2019-03-01 02:32:55 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 02:32:55 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 02:36:25 INFO  Controller:32 - CONNECTED
+2019-03-01 02:56:57 INFO  Controller:32 - CONNECTED
+2019-03-01 17:12:12 INFO  Controller:32 - CONNECTED
+2019-03-01 17:12:28 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:12:28 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 17:12:28 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:12:28 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:12:42 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:12:42 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:12:42 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:13:00 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:13:00 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 17:13:00 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:13:05 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:13:05 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 17:13:05 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:13:09 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:13:09 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:13:15 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:13:15 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:13:24 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:13:24 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:13:44 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:13:44 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:14:15 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:14:15 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:14:56 INFO  Controller:32 - CONNECTED
+2019-03-01 17:15:12 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:15:12 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:15:28 INFO  Controller:32 - CONNECTED
+2019-03-01 17:15:41 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:15:41 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:15:45 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:15:45 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:15:49 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:15:49 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:16:26 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:16:26 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:17:35 INFO  Controller:32 - CONNECTED
+2019-03-01 17:17:48 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:17:48 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:18:03 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:18:03 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:18:19 INFO  Controller:32 - CONNECTED
+2019-03-01 17:18:34 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:18:34 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 17:18:42 INFO  Controller:32 - CONNECTED
+2019-03-01 17:18:50 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:18:50 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:21:31 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:35:44 INFO  Controller:32 - CONNECTED
+2019-03-01 17:35:52 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:36:00 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:44:51 INFO  Controller:32 - CONNECTED
+2019-03-01 17:44:58 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:45:05 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 17:45:05 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 20:03:29 INFO  Controller:32 - CONNECTED
+2019-03-01 20:03:42 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:03:49 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:05:02 INFO  Controller:32 - CONNECTED
+2019-03-01 20:05:09 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:05:13 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:05:48 INFO  Controller:32 - CONNECTED
+2019-03-01 20:05:57 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:05:57 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 20:06:04 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:06:04 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 20:13:48 INFO  Controller:32 - CONNECTED
+2019-03-01 20:14:00 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:14:09 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 20:14:09 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 20:14:09 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 20:14:09 WARN  QuotedPrintableInputStream:158 - Malformed MIME; expected \r or [0-9A-Z], got 10
+2019-03-01 20:14:21 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:11:10 INFO  Controller:32 - CONNECTED
+2019-03-01 21:11:19 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:00 INFO  Controller:32 - CONNECTED
+2019-03-01 21:35:14 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:14 WARN  MimeEntity:305 - Unexpected end of headers detected. Higher level boundary detected or EOF reached.
+2019-03-01 21:35:14 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:35:32 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:32 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:35:38 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:38 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:35:43 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:43 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:35:48 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:48 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:35:54 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:35:54 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:36:00 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:36:00 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:36:05 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:36:05 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:36:18 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:36:18 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:36:29 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:36:29 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-01 21:38:33 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-01 21:43:04 INFO  Controller:32 - CONNECTED
+2019-03-01 21:43:12 WARN  MimeEntity:305 - Invalid header encountered

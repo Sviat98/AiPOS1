@@ -4,22 +4,30 @@ import org.apache.commons.io.input.ReaderInputStream;
 import org.apache.james.mime4j.io.BufferedLineReaderInputStream;
 import org.apache.james.mime4j.io.LineReaderInputStream;
 import org.apache.james.mime4j.io.LineReaderInputStreamAdaptor;
-import org.apache.james.mime4j.message.Message;
-import org.apache.james.mime4j.message.Multipart;
+import org.apache.james.mime4j.message.*;
+
 import org.apache.james.mime4j.util.ByteArrayBuffer;
+import sun.misc.IOUtils;
 
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+import javax.print.DocFlavor;
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
 
 public class POP3Connection {
    private SSLSocket socket = null;
     private BufferedReader inputStream = null;
     private BufferedWriter outputStream = null;
     private String response;
-    //private javax.mail.Message
     private Message message;
     private String resultMessage;
+    private StringBuffer txtPart ;
+    private StringBuffer htmlPart;
+    private ArrayList<BodyPart> attachments;
+
+
 
 
 
@@ -124,7 +132,6 @@ public class POP3Connection {
 
             public void sendCommand(String command) throws POP3ConnectionException {
                 try {
-                    //inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     outputStream.write(command);
                     outputStream.flush();
                     createResponse();
@@ -139,23 +146,25 @@ public class POP3Connection {
         return resultMessage;
     }
 
+
+
     public void createMessage() throws POP3ConnectionException{
 
         try{
+            txtPart = new StringBuffer();
+            htmlPart = new StringBuffer();
+            attachments = new ArrayList<>();
 
+            ByteArrayInputStream bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes());
 
-            ReaderInputStream readerInputStream = new ReaderInputStream(inputStream,"UTF-8");
-            BufferedLineReaderInputStream bufferedLineReaderInputStream = new BufferedLineReaderInputStream(readerInputStream,10000);
-            // message = new Message(socket.getInputStream());
-
-            message = new Message(bufferedLineReaderInputStream);
-
+            message = new Message(bais);
 
 
             StringBuilder fullMessage = new StringBuilder();
 
+
             fullMessage.append("Message:\n");
-            fullMessage.append("Date: "+message.getDate().toString());
+            fullMessage.append("Date: "+message.getDate());
             fullMessage.append("\n");
             fullMessage.append("From: "+message.getFrom());
             fullMessage.append("\n");
@@ -164,23 +173,86 @@ public class POP3Connection {
             fullMessage.append("Subject: "+message.getSubject());
             fullMessage.append("\n");
 
-            resultMessage = fullMessage.toString();
+
+
+
 
             if(message.isMultipart()){
                 Multipart multipart = (Multipart) message.getBody();
+                parseBodyParts(multipart);
+            }
+            else{
+                String text = getTxtPart(message);
+                txtPart.append(text);
             }
 
 
+            fullMessage.append(txtPart.toString());
 
-            //System.out.println("To: " + message.getTo());
-            //System.out.println("From: " + message.getFrom());
-            //System.out.println("Subject: " + message.getSubject());
+            fullMessage.append("\n");
 
+            fullMessage.append(htmlPart.toString());
+
+            fullMessage.append("\n");
+
+            for(BodyPart attach : attachments){
+                String filename = attach.getFilename();
+                FileOutputStream fos = new FileOutputStream(filename);
+
+                try{
+                    BinaryBody binaryBody = (BinaryBody) attach.getBody();
+                    binaryBody.writeTo(fos);
+                }
+                finally {
+
+                    fos.close();
+                    attachments.remove(attach);
+                }
+
+            }
+
+
+            resultMessage = fullMessage.toString();
+
+            txtPart.delete(0,txtPart.length());
+
+            htmlPart.delete(0,htmlPart.length());
+
+            
         }
         catch ( IOException e){
             throw new POP3ConnectionException("Error while creating message");
         }
 
+    }
+
+    private String getTxtPart(Entity part) throws IOException{
+
+            TextBody tb = (TextBody) part.getBody();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            tb.writeTo(baos);
+            //baos.flush();
+
+            return new String(baos.toByteArray());
+    }
+
+    private void parseBodyParts(Multipart multipart) throws IOException{
+            for(BodyPart bodyPart : multipart.getBodyParts()){
+                if(bodyPart.isMimeType("text/plain")){
+                    String txt = getTxtPart(bodyPart);
+                    txtPart.append(txt);
+                }
+                else if(bodyPart.isMimeType("text/html")){
+                    String html = getTxtPart(bodyPart);
+                    htmlPart.append(html);
+                }
+                else if(bodyPart.getDispositionType() != null && !bodyPart.getDispositionType().equals("")){
+                    attachments.add(bodyPart);
+                }
+         if(bodyPart.isMultipart()){
+           parseBodyParts((Multipart) bodyPart.getBody());
+         }
+            }
     }
 
 
