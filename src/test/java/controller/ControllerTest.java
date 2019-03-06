@@ -28,11 +28,18 @@ public class ControllerTest {
     }
 
     @Test
-    public void disconnect() {
+    public void disconnect() throws  POP3ConnectionException{
+
+        if(connection.isConnected()){
+            connection.disconnect();
+        }
+
+        assertEquals("+OK\n",connection.getResponse());
     }
 
     @Test
     public void execute() {
+
     }
 
     @Test

@@ -64,8 +64,10 @@ public class Controller {
 
         updateStateClient(connected,state);
 
-        if(state)
-            execute(CommandName.LIST,"");
+        if(state){
+            mainWindow.writeMessage(pop3Connection.getMailHeaders(username, password));
+        }
+
 
     }
 
