@@ -2,37 +2,23 @@ package model;
 
 import com.rac021.charset.validator.CharsetDetector;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.input.ReaderInputStream;
-import org.apache.james.mime4j.codec.DecodeMonitor;
-import org.apache.james.mime4j.field.address.Mailbox;
-import org.apache.james.mime4j.io.BufferedLineReaderInputStream;
-import org.apache.james.mime4j.io.LineReaderInputStream;
-import org.apache.james.mime4j.io.LineReaderInputStreamAdaptor;
+
 import org.apache.james.mime4j.message.*;
 
 import org.apache.james.mime4j.message.BodyPart;
 import org.apache.james.mime4j.message.Message;
 import org.apache.james.mime4j.message.Multipart;
-import org.apache.james.mime4j.parser.ContentHandler;
-import org.apache.james.mime4j.parser.MimeStreamParser;
-import org.apache.james.mime4j.stream.BodyDescriptorBuilder;
-import org.apache.james.mime4j.stream.MimeConfig;
-import org.apache.james.mime4j.util.ByteArrayBuffer;
-import sun.misc.IOUtils;
-import tech.blueglacier.email.Attachment;
-import tech.blueglacier.email.Email;
-import tech.blueglacier.parser.CustomContentHandler;
+
 
 import javax.mail.*;
 import javax.mail.internet.MimeUtility;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-import javax.print.DocFlavor;
+
 import java.io.*;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Properties;
 
 public class POP3Connection {
@@ -115,7 +101,6 @@ public class POP3Connection {
             throw new POP3ConnectionException("Error while recieving response");
         }
 
-
     }
 
 
@@ -134,7 +119,6 @@ public class POP3Connection {
 
     public String getAllResponseLines(String response) throws POP3ConnectionException{
         StringBuilder multiResponse = new StringBuilder();
-
 
 
         multiResponse.append(response);

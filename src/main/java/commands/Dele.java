@@ -9,7 +9,7 @@ public class Dele implements Command {
     @Override
     public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvalidInputException {
         try{
-            if (!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input");
+            if (!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input of DELE command.\n");
             String command = createCommand(CommandName.DELE,parameters);
             connection.sendCommand(command);
             return connection.getResponse();

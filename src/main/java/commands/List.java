@@ -18,7 +18,7 @@ public class List implements Command{
                 return connection.getAllResponseLines(response);
             }
             else{
-                if(!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input. You must enter a number");
+                if(!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input of LIST command\n");
                 String command = createCommand(CommandName.LIST,parameters);
                 connection.sendCommand(command);
 

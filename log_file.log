@@ -2479,3 +2479,16 @@ model.POP3ConnectionException: Cannot connect to server
 2019-03-08 13:27:33 WARN  MimeEntity:305 - Invalid header encountered
 2019-03-08 13:29:08 INFO  Controller:32 - CONNECTED
 2019-03-08 13:29:25 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-08 13:41:47 INFO  Controller:32 - CONNECTED
+2019-03-08 13:41:54 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-08 13:42:04 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-08 19:43:27 INFO  Controller:32 - CONNECTED
+2019-03-08 19:43:47 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-08 19:43:47 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-08 19:44:03 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-08 19:44:03 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-08 19:44:13 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-08 19:44:13 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-08 19:47:17 INFO  Controller:32 - CONNECTED
+2019-03-08 20:04:28 INFO  Controller:32 - CONNECTED
+2019-03-08 20:28:55 INFO  Controller:32 - CONNECTED

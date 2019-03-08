@@ -20,7 +20,7 @@ public class Uidl implements Command {
                 return connection.getAllResponseLines(response);
         }
         else{
-                if(!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input");
+                if(!parameters.matches("[1-9]\\d*")) throw new InvalidInputException("Invalid input. UIDL command should include only one digit parameter.\n");
 
                 command = createCommand(CommandName.UIDL,parameters);
                 connection.sendCommand(command);

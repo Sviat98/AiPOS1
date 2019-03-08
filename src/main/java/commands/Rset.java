@@ -9,7 +9,7 @@ public class Rset implements Command {
     @Override
     public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvalidInputException {
         try{
-            if(!parameters.isEmpty()) throw new InvalidInputException("Invalid input. This is a command without parameters");
+            if(!parameters.isEmpty()) throw new InvalidInputException("Invalid input. RSET is a command without parameters\n");
             String command = createCommand(CommandName.RSET);
             connection.sendCommand(command);
 

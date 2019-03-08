@@ -2,46 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fd6847a-63b2-4628-a119-aff871c4203f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blank.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email1.eml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log_file.log" beforeDir="false" afterPath="$PROJECT_DIR$/log_file.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic01b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic02b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic03b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic04b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic05b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic06b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic07b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic08b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic09b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic10b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic11b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic12b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic13b.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-fb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-mm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-ok.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-tw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-vk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Dele.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Dele.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/List.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Noop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Noop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Pass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Pass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Quit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Quit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/Retr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Retr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Rset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Rset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Stat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Stat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Top.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Top.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Uidl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Uidl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/POP3Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/POP3Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/commands/Retr.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/commands/Retr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/POP3Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/POP3Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testmail.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testmail1.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/top_ms.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/top_pic.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -78,7 +54,7 @@
     <session id="-61486439">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.33" value="1" />
@@ -91,18 +67,19 @@
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.54" value="1" />
           <entry key="project.open.time.57" value="2" />
+          <entry key="project.open.time.61" value="1" />
           <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.66" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.81" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="4" />
           <entry key="eml" value="4" />
-          <entry key="java" value="218" />
+          <entry key="java" value="233" />
           <entry key="log" value="2" />
           <entry key="png" value="29" />
           <entry key="properties" value="4" />
@@ -113,7 +90,7 @@
         <counts>
           <entry key="CLASS" value="4" />
           <entry key="Image" value="29" />
-          <entry key="JAVA" value="218" />
+          <entry key="JAVA" value="233" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="4" />
           <entry key="XML" value="9" />
@@ -122,14 +99,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="java" value="15065" />
+          <entry key="java" value="15497" />
           <entry key="properties" value="110" />
           <entry key="xml" value="90" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="15065" />
+          <entry key="JAVA" value="15497" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="110" />
           <entry key="XML" value="90" />
@@ -139,23 +116,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/POP3Connection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="299" column="9" lean-forward="true" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/Retr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="17">
+              <caret line="11" column="108" selection-start-line="11" selection-start-column="108" selection-end-line="11" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,46 +129,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/Rset.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="67" column="97" lean-forward="true" selection-start-line="67" selection-start-column="97" selection-end-line="67" selection-end-column="97" />
+            <state relative-caret-position="85">
+              <caret line="11" column="124" selection-start-line="11" selection-start-column="124" selection-end-line="11" selection-end-column="124" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/MainWindow.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/Stat.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="107" column="73" selection-start-line="107" selection-start-column="73" selection-end-line="107" selection-end-column="73" />
+              <caret line="10" column="120" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/Uidl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+            <state relative-caret-position="221">
+              <caret line="22" column="156" selection-start-line="22" selection-start-column="156" selection-end-line="22" selection-end-column="156" />
             </state>
           </provider>
         </entry>
@@ -211,8 +158,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/Noop.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="12" column="124" selection-start-line="12" selection-start-column="124" selection-end-line="12" selection-end-column="124" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/List.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+              <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/Dele.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="11" column="115" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/Top.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" column="120" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
             </state>
           </provider>
         </entry>
@@ -220,8 +194,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/commands/Pass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" selection-end-line="21" />
+            <state relative-caret-position="136">
+              <caret line="10" column="128" selection-start-line="10" selection-start-column="128" selection-end-line="10" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/commands/Quit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="12" column="124" selection-start-line="12" selection-start-column="124" selection-end-line="12" selection-end-column="124" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -254,23 +240,13 @@
         <option value="$PROJECT_DIR$/src/main/java/commands/Command.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/InvaldInputException.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/InvalidInputException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Pass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Noop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Quit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Rset.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Stat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Dele.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/ResponseCreator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/List.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/MimeParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/message/Header.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/CommandName.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/Mailbox.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Uidl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/test/java/commands/UserTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Top.java" />
         <option value="$PROJECT_DIR$/src/test/java/commands/DeleTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/commands/StatTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/commands/CommandDirector.java" />
@@ -284,11 +260,21 @@
         <option value="$PROJECT_DIR$/src/test/java/commands/UidlTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/controller/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/POP3ConnectionException.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/main/java/commands/Retr.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/model/POP3Connection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Retr.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Uidl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Stat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Rset.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Quit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Pass.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Noop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/List.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Dele.java" />
+        <option value="$PROJECT_DIR$/src/main/java/commands/Top.java" />
       </list>
     </option>
   </component>
@@ -344,8 +330,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -414,12 +398,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552040992754" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552042673459" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/POP3-client-master" />
@@ -567,7 +553,8 @@
       <workItem from="1551503832785" duration="11602000" />
       <workItem from="1551767432374" duration="23705000" />
       <workItem from="1551894975033" duration="10926000" />
-      <workItem from="1551908673193" duration="15708000" />
+      <workItem from="1551908673193" duration="17638000" />
+      <workItem from="1552063351243" duration="2770000" />
     </task>
     <servers />
   </component>
@@ -604,13 +591,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264563000" />
+    <option name="totallyTimeSpent" value="269263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11677852" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118120804" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -619,7 +605,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44335663" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44335663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -644,7 +630,7 @@
       <window_info anchor="right" id="Bean Validation" order="12" weight="0.3295302" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11677852" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.118120804" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -689,42 +675,18 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/top_pic.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/top_ms.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sm-tw.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sm-ok.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sm-mm.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sm-fb.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic13b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic12b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic11b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic10b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic09b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blank.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/top_pic.png" />
+    <entry file="file://$PROJECT_DIR$/top_ms.png" />
+    <entry file="file://$PROJECT_DIR$/sm-tw.png" />
+    <entry file="file://$PROJECT_DIR$/sm-ok.png" />
+    <entry file="file://$PROJECT_DIR$/sm-mm.png" />
+    <entry file="file://$PROJECT_DIR$/sm-fb.png" />
+    <entry file="file://$PROJECT_DIR$/pic13b.png" />
+    <entry file="file://$PROJECT_DIR$/pic12b.png" />
+    <entry file="file://$PROJECT_DIR$/pic11b.png" />
+    <entry file="file://$PROJECT_DIR$/pic10b.png" />
+    <entry file="file://$PROJECT_DIR$/pic09b.png" />
+    <entry file="file://$PROJECT_DIR$/blank.png" />
     <entry file="file://$PROJECT_DIR$/btn_apps.png" />
     <entry file="file://$PROJECT_DIR$/btn_play.png" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/FileOutputStream.java">
@@ -750,9 +712,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pic02.png" />
     <entry file="file://$PROJECT_DIR$/email1.eml" />
-    <entry file="file://$PROJECT_DIR$/sm-vk.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sm-vk.png" />
     <entry file="file://$PROJECT_DIR$/src/test/java/controller/ControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -760,9 +720,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testmail.eml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/testmail.eml" />
     <entry file="file://$PROJECT_DIR$/log_file.log">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -780,23 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Rset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Quit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/POP3ClientException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -804,55 +745,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testmail1.eml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Stat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Top.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Uidl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/CommandCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/CommandDirector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/testmail1.eml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model/POP3ConnectionException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -867,13 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Dele.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/commands/InvalidInputException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -881,39 +767,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/List.java">
+    <entry file="file://$PROJECT_DIR$/pic01b.png" />
+    <entry file="file://$PROJECT_DIR$/pic02b.png" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        <state relative-caret-position="1649">
+          <caret line="107" column="73" selection-start-line="107" selection-start-column="73" selection-end-line="107" selection-end-column="73" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Noop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Pass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic01b.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pic02b.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
@@ -929,37 +790,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="67" column="97" lean-forward="true" selection-start-line="67" selection-start-column="97" selection-end-line="67" selection-end-column="97" />
+        <state relative-caret-position="1207">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/CommandDirector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="107" column="73" selection-start-line="107" selection-start-column="73" selection-end-line="107" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Retr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/POP3Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="299" column="9" lean-forward="true" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="9" />
+        <state relative-caret-position="626">
+          <caret line="123" column="8" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="89" column="50" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/CommandCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="127" selection-start-line="11" selection-start-column="127" selection-end-line="11" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Uidl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="156" selection-start-line="22" selection-start-column="156" selection-end-line="22" selection-end-column="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Stat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="120" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Rset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="124" selection-start-line="11" selection-start-column="124" selection-end-line="11" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Retr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="11" column="108" selection-start-line="11" selection-start-column="108" selection-end-line="11" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Quit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="12" column="124" selection-start-line="12" selection-start-column="124" selection-end-line="12" selection-end-column="124" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Noop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="124" selection-start-line="12" selection-start-column="124" selection-end-line="12" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Dele.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="115" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="50" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Pass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="128" selection-start-line="10" selection-start-column="128" selection-end-line="10" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/commands/Top.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="120" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
         </state>
       </provider>
     </entry>
