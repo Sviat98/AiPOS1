@@ -2,7 +2,6 @@ package commands;
 
 import model.POP3Connection;
 import model.POP3ConnectionException;
-import org.apache.james.mime4j.message.Message;
 
 import static commands.CommandCreator.createCommand;
 
@@ -23,6 +22,8 @@ public class Retr implements Command {
 
             connection.createMessage();
 
+            connection.saveMessage(parameters);
+
             return connection.getResultMessage();
 
         }catch (POP3ConnectionException e){
@@ -31,10 +32,4 @@ public class Retr implements Command {
 
     }
 
-    public String createMessage(){
-        Message message = new Message();
-
-
-        return message.toString();
-    }
 }

@@ -105,7 +105,7 @@ public class MainWindow {
         quitFromMailbox.setDisable(true);
 
         loginButton.setOnAction(e->{
-            controller.authorize(user.getText(),pass.getText());
+            controller.authorize(hostField.getText(),portField.getText(),user.getText(),pass.getText());
 
         });
 

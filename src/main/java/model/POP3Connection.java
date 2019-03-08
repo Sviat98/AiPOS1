@@ -1,7 +1,9 @@
 package model;
 
+import com.rac021.charset.validator.CharsetDetector;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.ReaderInputStream;
+import org.apache.james.mime4j.codec.DecodeMonitor;
 import org.apache.james.mime4j.field.address.Mailbox;
 import org.apache.james.mime4j.io.BufferedLineReaderInputStream;
 import org.apache.james.mime4j.io.LineReaderInputStream;
@@ -11,8 +13,15 @@ import org.apache.james.mime4j.message.*;
 import org.apache.james.mime4j.message.BodyPart;
 import org.apache.james.mime4j.message.Message;
 import org.apache.james.mime4j.message.Multipart;
+import org.apache.james.mime4j.parser.ContentHandler;
+import org.apache.james.mime4j.parser.MimeStreamParser;
+import org.apache.james.mime4j.stream.BodyDescriptorBuilder;
+import org.apache.james.mime4j.stream.MimeConfig;
 import org.apache.james.mime4j.util.ByteArrayBuffer;
 import sun.misc.IOUtils;
+import tech.blueglacier.email.Attachment;
+import tech.blueglacier.email.Email;
+import tech.blueglacier.parser.CustomContentHandler;
 
 import javax.mail.*;
 import javax.mail.internet.MimeUtility;
@@ -23,6 +32,7 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class POP3Connection {
@@ -165,8 +175,9 @@ public class POP3Connection {
             attachments = new ArrayList<>();
 
             bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes("UTF-8"));
-            message = new Message(bais);
 
+
+            message = new Message(bais);
 
 
             StringBuilder fullMessage = new StringBuilder();
@@ -195,39 +206,8 @@ public class POP3Connection {
 
             fullMessage.append(txtPart.toString());
 
-            fullMessage.append("\n");
-
-
-            //fullMessage.append(htmlPart.toString());
 
             fullMessage.append("\n");
-
-
-
-            //FileOutputStream savingMsg = new FileOutputStream("testmail.eml");
-
-            FileUtils.writeStringToFile(new File("testmail1.eml"),fullMessage.toString(),"UTF-8");
-            //message.writeTo(savingMsg);
-
-
-
-            for(BodyPart attach : attachments){
-                String filename = attach.getFilename();
-                FileOutputStream fos = new FileOutputStream(filename);
-
-                try{
-                    BinaryBody binaryBody = (BinaryBody) attach.getBody();
-                    binaryBody.writeTo(fos);
-                }
-                finally {
-
-                    fos.close();
-
-
-                }
-            }
-
-            attachments.clear();
 
             resultMessage = fullMessage.toString();
 
@@ -257,10 +237,16 @@ public class POP3Connection {
 
             TextBody tb = (TextBody) part.getBody();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            tb.writeTo(baos);
-            //baos.flush();
 
-            return new String(baos.toByteArray());
+
+            tb.writeTo(baos);
+
+        String some = baos.toString("UTF-8");
+
+        baos.close();
+
+
+            return some;
     }
 
     private void parseBodyParts(Multipart multipart) throws IOException{
@@ -282,11 +268,47 @@ public class POP3Connection {
             }
     }
 
-    public void  saveMessage(){
+    public void  saveMessage(String parameter) throws POP3ConnectionException{
+
+        File folder = new File("C:\\message "+parameter);
+
+
+        if(!folder.exists()){
+            boolean create  = folder.mkdir();
+        }
+        try{
+            for(BodyPart attach : attachments){
+
+                File file = new File(folder,attach.getFilename());
+
+                FileOutputStream fos = new FileOutputStream(file);
+
+
+                try{
+                    BinaryBody binaryBody = (BinaryBody) attach.getBody();
+                    binaryBody.writeTo(fos);
+                }
+                finally {
+
+                    fos.close();
+
+
+                }
+            }
+            FileUtils.writeStringToFile(new File(folder,"message.eml"),resultMessage,"UTF-8");
+
+        }
+        catch (IOException e){
+            throw new POP3ConnectionException("Error while saving message");
+        }
+
+
+        attachments.clear();
+
 
     }
 
-   public String getMailHeaders(String username,String password){
+   public String getMailHeaders(String host, String port, String username,String password){
 
         try {
 
@@ -294,14 +316,14 @@ public class POP3Connection {
             Properties properties = new Properties();
 
             //properties.put("mail.pop3.host", host);
-            properties.put("mail.pop3.port", "995");
+            properties.put("mail.pop3.port", port);
             properties.put("mail.pop3.starttls.enable", "true");
             Session emailSession = Session.getDefaultInstance(properties);
 
             //create the POP3 store object and connect with the pop server
             Store store = emailSession.getStore("pop3s");
 
-            store.connect("pop.mail.ru", username, password);
+            store.connect(host, username, password);
 
             //create the folder object and open it
             Folder emailFolder = store.getFolder("INBOX");
