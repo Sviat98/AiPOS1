@@ -1,6 +1,5 @@
 package model;
 
-import com.rac021.charset.validator.CharsetDetector;
 import org.apache.commons.io.FileUtils;
 
 import org.apache.james.mime4j.message.*;
@@ -32,6 +31,7 @@ public class POP3Connection {
     private StringBuffer htmlPart;
     private ArrayList<BodyPart> attachments;
     private StringBuilder mailHeaders;
+    private javax.mail.Message[] messages;
 
 
 
@@ -292,7 +292,7 @@ public class POP3Connection {
 
     }
 
-   public String getMailHeaders(String host, String port, String username,String password){
+   public javax.mail.Message[] getMailHeaders(String host, String port, String username, String password){
 
         try {
 
@@ -314,7 +314,13 @@ public class POP3Connection {
             emailFolder.open(Folder.READ_ONLY);
 
             // retrieve the messages from the folder in an array and print it
-            javax.mail.Message[] messages = emailFolder.getMessages();
+            messages = emailFolder.getMessages();
+
+
+
+
+
+          /*
 
             mailHeaders = new StringBuilder();
             for (int i = 0, n = messages.length; i < n; i++) {
@@ -326,24 +332,24 @@ public class POP3Connection {
                mailHeaders.append("\n");
 
             }
+            */
 
 
             //close the store and folder objects
-            emailFolder.close(false);
-            store.close();
+            //emailFolder.close(false);
+           // store.close();
 
-        } catch (NoSuchProviderException e) {
-            e.printStackTrace();
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+        }
+        catch ( NoSuchProviderException e) {
             e.printStackTrace();
         }
-
-        return mailHeaders.toString();
-
+        catch (MessagingException  e) {
+            e.printStackTrace();
+        }
+        catch ( Exception e) {
+            e.printStackTrace();
+        }
+       return messages;
     }
-
-
 
 }

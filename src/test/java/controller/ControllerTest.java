@@ -26,7 +26,7 @@ public class ControllerTest {
         assertEquals("+OK\n",connection.getResponse());
 
     }
-
+/*
     @Test
     public void disconnect() throws  POP3ConnectionException{
 
@@ -36,6 +36,7 @@ public class ControllerTest {
 
         assertEquals("+OK\n",connection.getResponse());
     }
+    */
 
     @Test
     public void execute() {
