@@ -1,11 +1,24 @@
 package model;
 
+import org.apache.commons.io.FileUtils;
+
 import org.apache.james.mime4j.message.*;
 
+import org.apache.james.mime4j.message.BodyPart;
+import org.apache.james.mime4j.message.Message;
+import org.apache.james.mime4j.message.Multipart;
+
+
+import javax.mail.*;
+import javax.mail.internet.MimeUtility;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+
 import java.io.*;
+
 import java.util.ArrayList;
+
+import java.util.Properties;
 
 public class POP3Connection {
    private SSLSocket socket = null;
@@ -17,6 +30,8 @@ public class POP3Connection {
     private StringBuffer txtPart ;
     private StringBuffer htmlPart;
     private ArrayList<BodyPart> attachments;
+    private StringBuilder mailHeaders;
+    private javax.mail.Message[] messages;
 
 
 
@@ -65,7 +80,7 @@ public class POP3Connection {
            outputStream = null;
        }
 
-       private boolean isConnected(){
+       public boolean isConnected(){
         return socket != null && socket.isConnected();
        }
 
@@ -85,7 +100,6 @@ public class POP3Connection {
         catch (IOException e){
             throw new POP3ConnectionException("Error while recieving response");
         }
-
 
     }
 
@@ -107,9 +121,7 @@ public class POP3Connection {
         StringBuilder multiResponse = new StringBuilder();
 
 
-
         multiResponse.append(response);
-        multiResponse.append(" ");
 
         while(!(response=readResponseLine()).equals(".\n")){
             multiResponse.append(response);
@@ -140,13 +152,14 @@ public class POP3Connection {
 
 
     public void createMessage() throws POP3ConnectionException{
-
+        ByteArrayInputStream bais = null;
         try{
             txtPart = new StringBuffer();
             htmlPart = new StringBuffer();
             attachments = new ArrayList<>();
 
-            ByteArrayInputStream bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes());
+            bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes("UTF-8"));
+
 
             message = new Message(bais);
 
@@ -165,9 +178,6 @@ public class POP3Connection {
             fullMessage.append("\n");
 
 
-
-
-
             if(message.isMultipart()){
                 Multipart multipart = (Multipart) message.getBody();
                 parseBodyParts(multipart);
@@ -180,39 +190,29 @@ public class POP3Connection {
 
             fullMessage.append(txtPart.toString());
 
-            fullMessage.append("\n");
-
-            fullMessage.append(htmlPart.toString());
 
             fullMessage.append("\n");
-
-            for(BodyPart attach : attachments){
-                String filename = attach.getFilename();
-                FileOutputStream fos = new FileOutputStream(filename);
-
-                try{
-                    BinaryBody binaryBody = (BinaryBody) attach.getBody();
-                    binaryBody.writeTo(fos);
-                }
-                finally {
-
-                    fos.close();
-                    attachments.remove(attach);
-                }
-
-            }
-
 
             resultMessage = fullMessage.toString();
+
 
             txtPart.delete(0,txtPart.length());
 
             htmlPart.delete(0,htmlPart.length());
 
-            
         }
         catch ( IOException e){
             throw new POP3ConnectionException("Error while creating message");
+        }
+        finally {
+            if(bais != null){
+                try{
+                    bais.close();
+                }
+                catch(IOException e){
+                    throw new POP3ConnectionException("Errors while reding message");
+                }
+            }
         }
 
     }
@@ -221,10 +221,16 @@ public class POP3Connection {
 
             TextBody tb = (TextBody) part.getBody();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            tb.writeTo(baos);
-            //baos.flush();
 
-            return new String(baos.toByteArray());
+
+            tb.writeTo(baos);
+
+        String some = baos.toString("UTF-8");
+
+        baos.close();
+
+
+            return some;
     }
 
     private void parseBodyParts(Multipart multipart) throws IOException{
@@ -246,5 +252,104 @@ public class POP3Connection {
             }
     }
 
+    public void  saveMessage(String parameter) throws POP3ConnectionException{
+
+        File folder = new File("C:\\message "+parameter);
+
+
+        if(!folder.exists()){
+            boolean create  = folder.mkdir();
+        }
+        try{
+            for(BodyPart attach : attachments){
+
+                File file = new File(folder,attach.getFilename());
+
+                FileOutputStream fos = new FileOutputStream(file);
+
+
+                try{
+                    BinaryBody binaryBody = (BinaryBody) attach.getBody();
+                    binaryBody.writeTo(fos);
+                }
+                finally {
+
+                    fos.close();
+
+
+                }
+            }
+            FileUtils.writeStringToFile(new File(folder,"message.eml"),resultMessage,"UTF-8");
+
+        }
+        catch (IOException e){
+            throw new POP3ConnectionException("Error while saving message");
+        }
+
+
+        attachments.clear();
+
+
+    }
+
+   public javax.mail.Message[] getMailHeaders(String host, String port, String username, String password){
+
+        try {
+
+            //create properties field
+            Properties properties = new Properties();
+
+            //properties.put("mail.pop3.host", host);
+            properties.put("mail.pop3.port", port);
+            properties.put("mail.pop3.starttls.enable", "true");
+            Session emailSession = Session.getDefaultInstance(properties);
+
+            //create the POP3 store object and connect with the pop server
+            Store store = emailSession.getStore("pop3s");
+
+            store.connect(host, username, password);
+
+            //create the folder object and open it
+            Folder emailFolder = store.getFolder("INBOX");
+            emailFolder.open(Folder.READ_ONLY);
+
+            // retrieve the messages from the folder in an array and print it
+            messages = emailFolder.getMessages();
+
+
+
+
+
+          /*
+
+            mailHeaders = new StringBuilder();
+            for (int i = 0, n = messages.length; i < n; i++) {
+                javax.mail.Message message = messages[i];
+               mailHeaders.append(i+1+"\t");
+               mailHeaders.append(message.getSentDate()+"\t");
+               mailHeaders.append(MimeUtility.decodeText(message.getFrom()[0].toString())+"\t");
+               mailHeaders.append(message.getSubject());
+               mailHeaders.append("\n");
+
+            }
+            */
+
+
+            //close the store and folder objects
+            //emailFolder.close(false);
+           // store.close();
+
+        }
+        catch ( NoSuchProviderException e) {
+            e.printStackTrace();
+        }
+        catch (MessagingException  e) {
+            e.printStackTrace();
+        }
+        catch ( Exception e) {
+            e.printStackTrace();
+        }
+       return messages;
+    }
 
 }

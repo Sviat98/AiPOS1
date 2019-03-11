@@ -9,7 +9,7 @@ public class User implements Command{
     @Override
     public String execute(String parameters, POP3Connection connection) throws POP3ClientException, InvalidInputException {
         try{
-            if(parameters == null || parameters.length() == 0)throw new InvalidInputException("Invalid input. You must enter username");
+            if(parameters == null || parameters.length() == 0)throw new InvalidInputException("Invalid input of USER command.\n");
                 String command = createCommand(CommandName.USER,parameters);
 
                 connection.sendCommand(command);

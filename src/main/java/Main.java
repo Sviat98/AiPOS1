@@ -3,11 +3,17 @@ import javafx.application.Application;
 
 import javafx.stage.Stage;
 
+import java.lang.reflect.InvocationTargetException;
+
 
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage)  {
-       Controller controller =  new Controller();
+    public void start(Stage primaryStage) throws InvocationTargetException{
+
+            Controller controller =  new Controller();
+
+
+
 
 
     }

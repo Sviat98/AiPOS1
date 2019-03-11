@@ -58,16 +58,19 @@ public class Controller {
         }
     }
 
-    public void authorize(String username,String password){
+    public void authorize(String host, String port,String username,String password){
         execute(CommandName.USER,username);
         boolean state = execute(CommandName.PASS,password);
 
         updateStateClient(connected,state);
 
-        if(state)
-            execute(CommandName.LIST,"");
-
+        if(state){
+            mainWindow.writeHeaders(pop3Connection.getMailHeaders(host,port,username, password));
+            //mainWindow.writeMessage(pop3Connection.getMailHeaders(host,port,username, password));
+        }
     }
+
+
 
     public void quit(){
         execute(CommandName.QUIT,"");

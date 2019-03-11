@@ -22,5 +22,6 @@ public class DeleTest {
         String command2 = "DELE 3\n";
         connection.sendCommand(command2);
         assertEquals("+OK message 3 deleted\n", connection.getResponse());
+
     }
 }

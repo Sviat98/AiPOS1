@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Command.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/CommandCreator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/CommandDirector.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/CommandName.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Dele.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/InvalidInputException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/List.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Noop.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/POP3ClientException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Pass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Quit.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Retr.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Rset.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Stat.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Top.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/Uidl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/commands/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/Controller.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/POP3Connection.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/POP3ConnectionException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/view/MainWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testmail1.eml" charset="windows-1251" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

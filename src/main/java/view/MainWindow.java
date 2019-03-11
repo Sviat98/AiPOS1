@@ -12,6 +12,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import commands.CommandName;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.internet.MimeUtility;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainWindow {
 
@@ -24,7 +31,10 @@ public class MainWindow {
 
     private GridPane connection;
     private GridPane login;
+    private GridPane mailHeaders;
     private HBox commandPane;
+    private List<CheckBox> pickMails;
+    private CheckBox pickMail;
 
     private Button loginButton;
 
@@ -62,6 +72,12 @@ public class MainWindow {
 
         login.setDisable(true);
 
+        mailHeaders = new GridPane();
+        mailHeaders.setHgap(10);
+        mailHeaders.setVgap(10);
+        mailHeaders.setPadding(new Insets(10));
+        mailHeaders.setAlignment(Pos.TOP_CENTER);
+
         commandPane = new HBox();
         commandPane.setDisable(true);
         commandPane.setAlignment(Pos.TOP_CENTER);
@@ -75,11 +91,11 @@ public class MainWindow {
         login.add(passLabel,0,1);
 
         TextField user = new TextField();
-        user.setText("bashkevich.98@mail.ru");
+        user.setText("POP3Irina@mail.ru");
         login.add(user,1,0);
 
         PasswordField pass = new PasswordField();
-        pass.setText("odavur14");
+        pass.setText("POP12345");
         login.add(pass,1,1);
 
         Label hostLabel = new Label("Host: ");
@@ -105,7 +121,7 @@ public class MainWindow {
         quitFromMailbox.setDisable(true);
 
         loginButton.setOnAction(e->{
-            controller.authorize(user.getText(),pass.getText());
+            controller.authorize(hostField.getText(),portField.getText(),user.getText(),pass.getText());
 
         });
 
@@ -150,7 +166,7 @@ public class MainWindow {
 
         sendCommand.setOnAction(e->{
                 if(commands.getSelectionModel().getSelectedItem() != null){
-                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),paramField.getText());
+                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),getSelectedText());
                 }
         });
 
@@ -164,16 +180,60 @@ public class MainWindow {
 
 
 
-        vBox.getChildren().addAll(connection,login,textArea,commandPane);
+        vBox.getChildren().addAll(connection,login,mailHeaders,textArea,commandPane);
 
 
-        stage.setScene(new Scene(vBox,600,800));
+        stage.setScene(new Scene(vBox,1200,1200));
 
         stage.show();
     }
 
+    public String getSelectedText(){
+        for (int i=0;i<pickMails.size();i++) {
+            boolean selected = pickMails.get(i).isSelected();
+            if(selected){
+                return pickMails.get(i).getText();
+            }
+        }
+
+        return null;
+    }
+
+
+
     public void writeMessage (String message){
         textArea.appendText(message);
+    }
+
+    public void writeHeaders(Message[] messages){
+
+        pickMails = new ArrayList<>();
+
+
+        try{
+            for (int i = 0; i< messages.length; i++){
+                Message message = messages[i];
+                pickMail = new CheckBox(i+1+"");
+                pickMails.add(pickMail);
+                mailHeaders.add(pickMail,0,i);
+                Label dateLabel = new Label (message.getSentDate().toString());
+                mailHeaders.add(dateLabel,1,i);
+                Label fromLabel = new Label(MimeUtility.decodeText(message.getFrom()[0].toString()));
+                mailHeaders.add(fromLabel,2,i);
+                Label subjectLabel = new Label(message.getSubject());
+                mailHeaders.add(subjectLabel,3,i);
+            }
+        }
+        catch(NoSuchProviderException e){
+            e.printStackTrace();
+        }
+        catch (MessagingException e){
+            e.printStackTrace();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public void changeStateClient(boolean connected,boolean autorized){

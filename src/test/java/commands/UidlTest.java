@@ -23,7 +23,7 @@ public class UidlTest {
         connection.sendCommand(command3);
         String response = connection.getResponse();
 
-        assertEquals("+OK 3 messages (339273 octets)\n 1 1550302722471\n" +
+        assertEquals("+OK 3 messages (339273 octets)\n1 1550302722471\n" +
                 "2 1550302722488\n" +
                 "3 1550302722998\n", connection.getAllResponseLines(response));
     }
