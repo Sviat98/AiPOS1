@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.apache.commons.io.FileUtils;
 
 import org.apache.james.mime4j.message.*;
@@ -30,8 +32,9 @@ public class POP3Connection {
     private StringBuffer txtPart ;
     private StringBuffer htmlPart;
     private ArrayList<BodyPart> attachments;
-    private StringBuilder mailHeaders;
+    private StringBuilder mailHeader;
     private javax.mail.Message[] messages;
+    private ObservableList<String> headers;
 
 
 
@@ -292,7 +295,7 @@ public class POP3Connection {
 
     }
 
-   public javax.mail.Message[] getMailHeaders(String host, String port, String username, String password){
+   public ObservableList<String> getMailHeaders(String host, String port, String username, String password){
 
         try {
 
@@ -318,26 +321,28 @@ public class POP3Connection {
 
 
 
+            mailHeader = new StringBuilder();
 
+            headers = FXCollections.observableArrayList();
 
-          /*
-
-            mailHeaders = new StringBuilder();
             for (int i = 0, n = messages.length; i < n; i++) {
                 javax.mail.Message message = messages[i];
-               mailHeaders.append(i+1+"\t");
-               mailHeaders.append(message.getSentDate()+"\t");
-               mailHeaders.append(MimeUtility.decodeText(message.getFrom()[0].toString())+"\t");
-               mailHeaders.append(message.getSubject());
-               mailHeaders.append("\n");
+               mailHeader.append(i+1+"\t");
+               mailHeader.append(message.getSentDate()+"\t");
+               mailHeader.append(MimeUtility.decodeText(message.getFrom()[0].toString())+"\t");
+               mailHeader.append(message.getSubject());
 
+                String header = mailHeader.toString();
+
+                headers.add(header);
+
+                mailHeader.delete(0,mailHeader.length());
             }
-            */
 
 
             //close the store and folder objects
-            //emailFolder.close(false);
-           // store.close();
+            emailFolder.close(false);
+            store.close();
 
         }
         catch ( NoSuchProviderException e) {
@@ -349,7 +354,7 @@ public class POP3Connection {
         catch ( Exception e) {
             e.printStackTrace();
         }
-       return messages;
+       return headers;
     }
 
 }

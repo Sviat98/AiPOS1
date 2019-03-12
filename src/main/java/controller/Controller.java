@@ -65,8 +65,8 @@ public class Controller {
         updateStateClient(connected,state);
 
         if(state){
+
             mainWindow.writeHeaders(pop3Connection.getMailHeaders(host,port,username, password));
-            //mainWindow.writeMessage(pop3Connection.getMailHeaders(host,port,username, password));
         }
     }
 

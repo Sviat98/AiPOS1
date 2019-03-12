@@ -2,6 +2,8 @@ package view;
 
 import commands.CommandDirector;
 import controller.Controller;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,11 +14,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import commands.CommandName;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
-import javax.mail.internet.MimeUtility;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,6 +32,8 @@ public class MainWindow {
     private HBox commandPane;
     private List<CheckBox> pickMails;
     private CheckBox pickMail;
+
+    private ListView<String> headers = new ListView<>();
 
     private Button loginButton;
 
@@ -77,6 +76,11 @@ public class MainWindow {
         mailHeaders.setVgap(10);
         mailHeaders.setPadding(new Insets(10));
         mailHeaders.setAlignment(Pos.TOP_CENTER);
+
+
+
+
+        //headers.setItems();
 
         commandPane = new HBox();
         commandPane.setDisable(true);
@@ -130,6 +134,9 @@ public class MainWindow {
 
         });
 
+        //headers.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
 
         ToggleGroup connectGroup  = new ToggleGroup();
 
@@ -166,7 +173,7 @@ public class MainWindow {
 
         sendCommand.setOnAction(e->{
                 if(commands.getSelectionModel().getSelectedItem() != null){
-                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),getSelectedText());
+                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),paramField.getText());
                 }
         });
 
@@ -180,7 +187,7 @@ public class MainWindow {
 
 
 
-        vBox.getChildren().addAll(connection,login,mailHeaders,textArea,commandPane);
+        vBox.getChildren().addAll(connection,login,headers,textArea,commandPane);
 
 
         stage.setScene(new Scene(vBox,1200,1200));
@@ -188,53 +195,19 @@ public class MainWindow {
         stage.show();
     }
 
-    public String getSelectedText(){
-        for (int i=0;i<pickMails.size();i++) {
-            boolean selected = pickMails.get(i).isSelected();
-            if(selected){
-                return pickMails.get(i).getText();
-            }
-        }
+    public void writeHeaders(ObservableList <String> list){
 
-        return null;
+
+        headers.setItems(list);
+
     }
-
 
 
     public void writeMessage (String message){
         textArea.appendText(message);
     }
 
-    public void writeHeaders(Message[] messages){
 
-        pickMails = new ArrayList<>();
-
-
-        try{
-            for (int i = 0; i< messages.length; i++){
-                Message message = messages[i];
-                pickMail = new CheckBox(i+1+"");
-                pickMails.add(pickMail);
-                mailHeaders.add(pickMail,0,i);
-                Label dateLabel = new Label (message.getSentDate().toString());
-                mailHeaders.add(dateLabel,1,i);
-                Label fromLabel = new Label(MimeUtility.decodeText(message.getFrom()[0].toString()));
-                mailHeaders.add(fromLabel,2,i);
-                Label subjectLabel = new Label(message.getSubject());
-                mailHeaders.add(subjectLabel,3,i);
-            }
-        }
-        catch(NoSuchProviderException e){
-            e.printStackTrace();
-        }
-        catch (MessagingException e){
-            e.printStackTrace();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-
-    }
 
     public void changeStateClient(boolean connected,boolean autorized){
        login.setDisable(!connected && !autorized);
