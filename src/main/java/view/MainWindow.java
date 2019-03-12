@@ -172,8 +172,13 @@ public class MainWindow {
 
 
         sendCommand.setOnAction(e->{
-                if(commands.getSelectionModel().getSelectedItem() != null){
-                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),paramField.getText());
+                if(commands.getSelectionModel().getSelectedItem() == String.valueOf(CommandName.TOP)){
+                    controller.execute(CommandName.TOP,String.valueOf(headers.getSelectionModel().getSelectedIndex()+1)+" "+paramField.getText());
+
+                }
+
+                else if(commands.getSelectionModel().getSelectedItem() != null){
+                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),String.valueOf(headers.getSelectionModel().getSelectedIndex()+1));
                 }
         });
 

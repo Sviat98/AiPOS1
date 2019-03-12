@@ -2757,3 +2757,15 @@ model.POP3ConnectionException: Cannot connect to server
 	at java.lang.Thread.run(Thread.java:748)
 2019-03-12 11:29:39 INFO  Controller:32 - CONNECTED
 2019-03-12 11:32:09 INFO  Controller:32 - CONNECTED
+2019-03-12 11:39:19 INFO  Controller:32 - CONNECTED
+2019-03-12 11:42:20 INFO  Controller:32 - CONNECTED
+2019-03-12 11:42:39 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-12 11:42:59 INFO  Controller:32 - CONNECTED
+2019-03-12 11:43:11 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-12 12:20:35 INFO  Controller:32 - CONNECTED
+2019-03-12 12:21:41 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-12 12:21:41 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
+2019-03-12 15:15:19 INFO  Controller:32 - CONNECTED
+2019-03-12 15:17:35 INFO  Controller:32 - CONNECTED
+2019-03-12 15:18:18 WARN  MimeEntity:305 - Invalid header encountered
+2019-03-12 15:18:18 WARN  MimeEntity:305 - Body part ended prematurely. Boundary detected in header or EOF reached.
