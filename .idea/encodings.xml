@@ -23,7 +23,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/model/POP3Connection.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/model/POP3ConnectionException.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/view/MainWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/testmail1.eml" charset="windows-1251" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -30,8 +30,7 @@ public class MainWindow {
     private GridPane login;
     private GridPane mailHeaders;
     private HBox commandPane;
-    private List<CheckBox> pickMails;
-    private CheckBox pickMail;
+
 
     private ListView<String> headers = new ListView<>();
 
@@ -41,9 +40,8 @@ public class MainWindow {
 
 
 
-
-
     public MainWindow(Controller controller){
+        this.controller = controller;
         VBox vBox = new VBox();
         vBox.setSpacing(10);
         vBox.setPadding(new Insets(10));
@@ -77,10 +75,6 @@ public class MainWindow {
         mailHeaders.setPadding(new Insets(10));
         mailHeaders.setAlignment(Pos.TOP_CENTER);
 
-
-
-
-        //headers.setItems();
 
         commandPane = new HBox();
         commandPane.setDisable(true);
@@ -134,10 +128,6 @@ public class MainWindow {
 
         });
 
-        //headers.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
-
-
         ToggleGroup connectGroup  = new ToggleGroup();
 
         RadioButton connect = new RadioButton("connect");
@@ -174,11 +164,15 @@ public class MainWindow {
         sendCommand.setOnAction(e->{
                 if(commands.getSelectionModel().getSelectedItem() == String.valueOf(CommandName.TOP)){
                     controller.execute(CommandName.TOP,String.valueOf(headers.getSelectionModel().getSelectedIndex()+1)+" "+paramField.getText());
+                    headers.getSelectionModel().clearSelection();
 
+                } else if(headers.getSelectionModel().getSelectedIndex()+1==0){
+                    controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),"");
                 }
 
                 else if(commands.getSelectionModel().getSelectedItem() != null){
                     controller.execute(CommandName.valueOf(commands.getSelectionModel().getSelectedItem()),String.valueOf(headers.getSelectionModel().getSelectedIndex()+1));
+                    headers.getSelectionModel().clearSelection();
                 }
         });
 

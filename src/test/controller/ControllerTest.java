@@ -1,5 +1,6 @@
 package controller;
 
+import commands.*;
 import model.POP3Connection;
 import model.POP3ConnectionException;
 import org.junit.Before;
@@ -36,10 +37,13 @@ public class ControllerTest {
 
         assertEquals("+OK\n",connection.getResponse());
     }
-    */
+*/
 
     @Test
     public void execute() {
+        CommandDirector director = new CommandDirector();
+
+        //Command command = new CommandDirector().getCommand(CommandName.valueOf());
 
     }
 

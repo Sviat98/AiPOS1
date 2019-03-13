@@ -7,10 +7,11 @@ import java.lang.reflect.InvocationTargetException;
 
 
 public class Main extends Application {
+    public  static  String PATH;
     @Override
-    public void start(Stage primaryStage) throws InvocationTargetException{
+    public void start(Stage primaryStage){
 
-            Controller controller =  new Controller();
+        Controller  controller =  new Controller();
 
 
 
@@ -19,7 +20,7 @@ public class Main extends Application {
     }
 
     public static void main (String[] args){
-
+         //PATH = args[0];
         launch(args);
 
 

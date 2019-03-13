@@ -3,10 +3,11 @@ commands\RsetTest.class
 commands\PassTest.class
 controller\ControllerTest.class
 commands\ListTest.class
-commands\TopTest.class
-commands\RetrTest.class
-commands\StatTest.class
 commands\UidlTest.class
 commands\UserTest.class
 commands\NoopTest.class
 commands\QuitTest.class
+commands\TopTest.class
+commands\RetrTest.class
+commands\StatTest.class
+view\MainWindowTest.class

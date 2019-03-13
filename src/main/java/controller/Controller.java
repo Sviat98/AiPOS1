@@ -3,7 +3,11 @@ package controller;
 import commands.*;
 import model.POP3Connection;
 import model.POP3ConnectionException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import view.MainWindow;
 
 
@@ -14,7 +18,10 @@ public class Controller {
     private boolean connected;
     private boolean authorized;
 
-    private static final Logger logger =  Logger.getLogger(Controller.class);
+
+    //private static final Logger logger =  Logger.getLogger(Controller.class);
+
+    private static final Log logger = LogFactory.getLog(Controller.class);
 
 
     public Controller() {
@@ -34,10 +41,8 @@ public class Controller {
 
 
         } catch (POP3ConnectionException e) {
-            //e.printStackTrace();
-            //(for StackTraceElement[] :)
+
             logger.error("Error while connection: ",e.fillInStackTrace());
-            //logger.error(e);
             mainWindow.writeMessage("\n[SERVER] : "+e.getMessage());
 
         }

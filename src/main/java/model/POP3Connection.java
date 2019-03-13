@@ -255,10 +255,10 @@ public class POP3Connection {
             }
     }
 
-    public void  saveMessage(String parameter) throws POP3ConnectionException{
+    public void  saveMessage( String parameter) throws POP3ConnectionException{
 
+        //File folder = new File(PATH+"\\message "+parameter);
         File folder = new File("C:\\message "+parameter);
-
 
         if(!folder.exists()){
             boolean create  = folder.mkdir();
