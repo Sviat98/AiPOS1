@@ -2,7 +2,6 @@ package view;
 
 import commands.CommandDirector;
 import controller.Controller;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,7 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import commands.CommandName;
 
-import java.util.List;
 
 
 public class MainWindow {
@@ -51,7 +49,7 @@ public class MainWindow {
 
         textArea.setEditable(false);
 
-        textArea.setMinSize(500,500);
+        textArea.setMinSize(500,300);
 
         connection  = new GridPane();
         connection.setHgap(10);
@@ -189,7 +187,7 @@ public class MainWindow {
         vBox.getChildren().addAll(connection,login,headers,textArea,commandPane);
 
 
-        stage.setScene(new Scene(vBox,1200,1200));
+        stage.setScene(new Scene(vBox,1200,1000));
 
         stage.show();
     }

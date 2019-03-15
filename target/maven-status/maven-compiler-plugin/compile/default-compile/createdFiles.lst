@@ -11,8 +11,8 @@ commands\Quit.class
 view\MainWindow.class
 commands\Rset.class
 commands\CommandName.class
+main\Main.class
 commands\List.class
-Main.class
 commands\Dele.class
 commands\POP3ClientException.class
 model\POP3ConnectionException.class

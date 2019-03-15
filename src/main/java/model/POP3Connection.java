@@ -16,8 +16,11 @@ import javax.mail.internet.MimeUtility;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
+import static main.Main.PATH;
+
 import java.io.*;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import java.util.Properties;
@@ -161,7 +164,9 @@ public class POP3Connection {
             htmlPart = new StringBuffer();
             attachments = new ArrayList<>();
 
-            bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes("UTF-8"));
+
+
+            bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes());
 
 
             message = new Message(bais);
@@ -213,7 +218,7 @@ public class POP3Connection {
                     bais.close();
                 }
                 catch(IOException e){
-                    throw new POP3ConnectionException("Errors while reding message");
+                    throw new POP3ConnectionException("Errors while reading message");
                 }
             }
         }
@@ -257,8 +262,8 @@ public class POP3Connection {
 
     public void  saveMessage( String parameter) throws POP3ConnectionException{
 
-        //File folder = new File(PATH+"\\message "+parameter);
-        File folder = new File("C:\\message "+parameter);
+        File folder = new File(PATH+"\\message "+parameter);
+        //File folder = new File("C:\\message "+parameter);
 
         if(!folder.exists()){
             boolean create  = folder.mkdir();

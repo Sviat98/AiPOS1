@@ -6,9 +6,12 @@ import model.POP3ConnectionException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import view.MainWindow;
+
+import java.util.Properties;
 
 
 public class Controller {
@@ -19,14 +22,29 @@ public class Controller {
     private boolean authorized;
 
 
-    //private static final Logger logger =  Logger.getLogger(Controller.class);
+    private static final Logger logger =  Logger.getLogger(Controller.class);
 
-    private static final Log logger = LogFactory.getLog(Controller.class);
+
+
+    //private static final Log logger = LogFactory.getLog(Controller.class);
 
 
     public Controller() {
         mainWindow = new MainWindow(this);
         pop3Connection = new POP3Connection();
+
+        Properties log4jProperties = new Properties();
+        log4jProperties.setProperty("log4j.rootLogger","INFO, stdout,file");
+        log4jProperties.setProperty("log4j.appender.stdout","org.apache.log4j.ConsoleAppender");
+        log4jProperties.setProperty("log4j.appender.stdout.Target","System.out");
+        log4jProperties.setProperty("log4j.appender.stdout.layout","org.apache.log4j.PatternLayout");
+        log4jProperties.setProperty("log4j.appender.stdout.layout.ConversionPattern","%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
+        log4jProperties.setProperty("log4j.appender.file","org.apache.log4j.RollingFileAppender");
+        log4jProperties.setProperty("log4j.appender.file.File","log_file.log");
+        log4jProperties.setProperty("log4j.appender.file.MaxFileSize","5MB");
+        log4jProperties.setProperty("log4j.appender.file.layout","org.apache.log4j.PatternLayout");
+        log4jProperties.setProperty("log4j.appender.file.layout.ConversionPattern","%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
+        PropertyConfigurator.configure(log4jProperties);
 
 
     }
