@@ -2,8 +2,10 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.apache.commons.io.ByteOrderMark;
 import org.apache.commons.io.FileUtils;
 
+import org.apache.commons.io.input.BOMInputStream;
 import org.apache.james.mime4j.message.*;
 
 import org.apache.james.mime4j.message.BodyPart;
@@ -21,6 +23,7 @@ import static main.Main.PATH;
 import java.io.*;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import java.util.Properties;
@@ -44,6 +47,7 @@ public class POP3Connection {
 
 
     public POP3Connection(){
+        System.setProperty("file.encoding","UTF8");
 
 
        }
@@ -164,9 +168,13 @@ public class POP3Connection {
             htmlPart = new StringBuffer();
             attachments = new ArrayList<>();
 
+            //String str = new String(getAllResponseLines(getResponse()).getBytes());
 
 
-            bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes());
+
+            bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes("UTF-8"));
+
+
 
 
             message = new Message(bais);
@@ -233,12 +241,10 @@ public class POP3Connection {
 
             tb.writeTo(baos);
 
-        String some = baos.toString("UTF-8");
-
-        baos.close();
 
 
-            return some;
+
+            return new String (baos.toByteArray());
     }
 
     private void parseBodyParts(Multipart multipart) throws IOException{

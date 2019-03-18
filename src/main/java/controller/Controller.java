@@ -3,10 +3,6 @@ package controller;
 import commands.*;
 import model.POP3Connection;
 import model.POP3ConnectionException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import view.MainWindow;
@@ -33,6 +29,7 @@ public class Controller {
         mainWindow = new MainWindow(this);
         pop3Connection = new POP3Connection();
 
+
         Properties log4jProperties = new Properties();
         log4jProperties.setProperty("log4j.rootLogger","INFO, stdout,file");
         log4jProperties.setProperty("log4j.appender.stdout","org.apache.log4j.ConsoleAppender");
@@ -44,6 +41,7 @@ public class Controller {
         log4jProperties.setProperty("log4j.appender.file.MaxFileSize","5MB");
         log4jProperties.setProperty("log4j.appender.file.layout","org.apache.log4j.PatternLayout");
         log4jProperties.setProperty("log4j.appender.file.layout.ConversionPattern","%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
+
         PropertyConfigurator.configure(log4jProperties);
 
 
@@ -118,11 +116,11 @@ public class Controller {
         return false;
     }
 
-    public void updateStateClient(boolean connected, boolean autorized){
+    public void updateStateClient(boolean connected, boolean authorized){
         this.connected = connected;
-        this.authorized = autorized;
+        this.authorized = authorized;
 
-        mainWindow.changeStateClient(connected,autorized);
+        mainWindow.changeStateClient(connected,authorized);
 
     }
 }
