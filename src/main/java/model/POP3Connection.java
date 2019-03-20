@@ -5,7 +5,9 @@ import javafx.collections.ObservableList;
 import org.apache.commons.io.ByteOrderMark;
 import org.apache.commons.io.FileUtils;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.input.BOMInputStream;
+import org.apache.commons.io.input.ReaderInputStream;
 import org.apache.james.mime4j.message.*;
 
 import org.apache.james.mime4j.message.BodyPart;
@@ -14,6 +16,7 @@ import org.apache.james.mime4j.message.Multipart;
 
 
 import javax.mail.*;
+import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -23,6 +26,7 @@ import static main.Main.PATH;
 import java.io.*;
 
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -151,7 +155,7 @@ public class POP3Connection {
 
 
                 } catch (IOException e) {
-                    throw new POP3ConnectionException("Error while sending command") ;
+                    throw new POP3ConnectionException("Error while sending command");
                 }
             }
 
@@ -162,23 +166,24 @@ public class POP3Connection {
 
 
     public void createMessage() throws POP3ConnectionException{
+
         ByteArrayInputStream bais = null;
         try{
             txtPart = new StringBuffer();
             htmlPart = new StringBuffer();
             attachments = new ArrayList<>();
 
-            //String str = new String(getAllResponseLines(getResponse()).getBytes());
+
+
+            String str1 = new String(getAllResponseLines(getResponse()).getBytes(Charset.defaultCharset()));
 
 
 
-            bais = new ByteArrayInputStream(getAllResponseLines(getResponse()).getBytes("UTF-8"));
 
-
+            bais = new ByteArrayInputStream(str1.getBytes());
 
 
             message = new Message(bais);
-
 
             StringBuilder fullMessage = new StringBuilder();
 
@@ -244,7 +249,7 @@ public class POP3Connection {
 
 
 
-            return new String (baos.toByteArray());
+            return new String (baos.toByteArray(),tb.getMimeCharset());
     }
 
     private void parseBodyParts(Multipart multipart) throws IOException{
@@ -268,7 +273,7 @@ public class POP3Connection {
 
     public void  saveMessage( String parameter) throws POP3ConnectionException{
 
-        File folder = new File(PATH+"\\message "+parameter);
+         File folder = new File(PATH+"\\message "+parameter);
         //File folder = new File("C:\\message "+parameter);
 
         if(!folder.exists()){

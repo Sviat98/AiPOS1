@@ -49,7 +49,7 @@ public class MainWindow {
 
         textArea.setEditable(false);
 
-        textArea.setMinSize(500,300);
+        textArea.setMinSize(500,500);
 
         connection  = new GridPane();
         connection.setHgap(10);
@@ -181,6 +181,8 @@ public class MainWindow {
 
 
         disconnect.setOnAction(e-> controller.disconnect());
+
+        headers.setPrefHeight(200);
 
 
 

@@ -13,9 +13,11 @@ import static org.junit.Assert.*;
 
 public class ControllerTest {
     private POP3Connection connection;
+   // private Controller controller;
 
     @Before
     public void setUp() throws Exception {
+        //controller =  new Controller();
         connection = new POP3Connection();
     }
 
@@ -41,9 +43,11 @@ public class ControllerTest {
 
     @Test
     public void execute() {
-        CommandDirector director = new CommandDirector();
+        //assertEquals(execute(CommandName.DELE,));
 
         //Command command = new CommandDirector().getCommand(CommandName.valueOf());
+
+        //assertEquals( "+OK\n",controller.execute(CommandName.USER,"bashkevich.98@mail.ru"));
 
     }
 
