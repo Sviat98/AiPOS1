@@ -19,9 +19,9 @@ public class DeleTest {
         String command1 = "PASS POP12345\n";
         connection.sendCommand(command1);
 
-        String command2 = "DELE 3\n";
+        String command2 = "DELE 2\n";
         connection.sendCommand(command2);
-        assertEquals("+OK message 3 deleted\n", connection.getResponse());
+        assertEquals("+OK message 2 deleted\n", connection.getResponse());
 
     }
 }

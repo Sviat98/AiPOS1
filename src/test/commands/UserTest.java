@@ -15,14 +15,14 @@ public class UserTest {
     public void execute() throws POP3ConnectionException {
         POP3Connection connection = new POP3Connection();
 
-        connection.connect("pop.mail.ru",995);
-         //String command1 = createCommand(CommandName.USER,"bashkevich.98@mail.ru");
+        connection.connect("pop.mail.ru", 995);
+        //String command1 = createCommand(CommandName.USER,"bashkevich.98@mail.ru");
 
-         String command = "USER bashkevich.98@mail.ru\n";
+        String command = "USER bashkevich.98@mail.ru\n";
 
-         connection.sendCommand(command);
+        connection.sendCommand(command);
 
 
-         assertEquals("+OK\n",connection.getResponse());
+        assertEquals("+OK\n", connection.getResponse());
     }
 }

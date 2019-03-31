@@ -22,6 +22,6 @@ public class ListTest {
         String command3 = "LIST\n";
         connection.sendCommand(command3);
 
-        assertEquals("+OK 3 messages (339273 octets)\n", connection.getResponse());
+        assertEquals("+OK 2 messages (258705 octets)\n", connection.getResponse());
     }
 }

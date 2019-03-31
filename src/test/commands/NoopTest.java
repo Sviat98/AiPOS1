@@ -23,5 +23,7 @@ public class NoopTest {
         connection.sendCommand(command3);
 
         assertEquals("+OK \n", connection.getResponse());
+
+
     }
 }

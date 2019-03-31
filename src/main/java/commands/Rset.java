@@ -7,15 +7,15 @@ import static commands.CommandCreator.createCommand;
 
 public class Rset implements Command {
     @Override
-    public String execute(String parameters, POP3Connection connection) throws POP3ClientException,InvalidInputException {
-        try{
-            if(!parameters.isEmpty()) throw new InvalidInputException("Invalid input. RSET is a command without parameters\n");
+    public String execute(String parameters, POP3Connection connection) throws POP3ClientException, InvalidInputException {
+        try {
+            if (!parameters.isEmpty())
+                throw new InvalidInputException("Invalid input. RSET is a command without parameters\n");
             String command = createCommand(CommandName.RSET);
             connection.sendCommand(command);
 
             return connection.getResponse();
-        }
-        catch(POP3ConnectionException e){
+        } catch (POP3ConnectionException e) {
             throw new POP3ClientException(e.getMessage());
         }
     }

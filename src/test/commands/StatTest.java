@@ -21,6 +21,6 @@ public class StatTest {
 
         String command2 = "STAT\n";
         connection.sendCommand(command2);
-        assertEquals("+OK 3 339273\n", connection.getResponse());
+        assertEquals("+OK 2 258705\n", connection.getResponse());
     }
 }
