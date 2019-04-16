@@ -23,8 +23,6 @@ import static main.Main.PATH;
 
 import java.io.*;
 
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -63,6 +61,7 @@ public class POP3Connection {
         PropertyConfigurator.configure(log4jProperties);
 
     }
+
 
     public void connect(String host, int port) throws POP3ConnectionException {
         try {
@@ -220,6 +219,12 @@ public class POP3Connection {
         }
     }
 
+    /**
+     * функция получения текстовой части сообщения электронной почты
+     * @param part часть сообщения электронной почты
+     * @return строку текста сообщения
+     * @throws IOException ошибка ввода-вывода
+     */
     private String getTxtPart(Entity part) throws IOException {
 
         TextBody tb = (TextBody) part.getBody();
@@ -230,7 +235,14 @@ public class POP3Connection {
         return new String(baos.toByteArray(), tb.getMimeCharset());
     }
 
-    private void parseBodyParts(Multipart multipart) throws IOException {
+    /**
+     *
+     * @param multipart
+     * рекурсивно обрабатывает части сообщения электронной почты
+     * @throws IOException ошибка ввода-вывода
+     */
+
+    protected void parseBodyParts(Multipart multipart) throws IOException {
         for (BodyPart bodyPart : multipart.getBodyParts()) {
             if (bodyPart.isMimeType("text/plain")) {
                 String txt = getTxtPart(bodyPart);
@@ -278,6 +290,15 @@ public class POP3Connection {
 
         attachments.clear();
     }
+
+    /**
+     * функция получения заголовков ссобщений электронной почты
+     * @param host адрес хоста
+     * @param port номер порта
+     * @param username адрес электронной почты пользователя
+     * @param password пароль электронной почты пользователя
+     * @return массив строк, содержащий заголовки сообщений
+     */
 
     public ObservableList<String> getMailHeaders(String host, String port, String username, String password) {
 

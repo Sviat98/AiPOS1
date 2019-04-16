@@ -24,7 +24,7 @@ public class MainWindow {
     private GridPane login;
     private GridPane mailHeaders;
     private HBox commandPane;
-    private ListView<String> headers = new ListView<>();
+    private ListView<String> headers;
     private Button loginButton;
     private Button quitFromMailbox;
 
@@ -34,6 +34,8 @@ public class MainWindow {
         vBox.setSpacing(10);
         vBox.setPadding(new Insets(10));
         Stage stage = new Stage();
+
+        headers = new ListView<>();
 
         textArea = new TextArea();
 

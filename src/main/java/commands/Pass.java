@@ -11,10 +11,8 @@ public class Pass implements Command {
         try {
             if (parameters == null || parameters.length() == 0)
                 throw new InvalidInputException("Invalid input of PASS command.\n");
-
             String command = createCommand(CommandName.PASS, parameters);
             connection.sendCommand(command);
-
             return connection.getResponse();
         } catch (POP3ConnectionException e) {
             throw new POP3ClientException(e.getMessage());

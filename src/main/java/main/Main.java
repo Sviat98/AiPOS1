@@ -23,28 +23,27 @@ public class Main extends Application {
         System.setProperty("file.encoding", "UTF-8");
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-            Properties log4jProperties = new Properties();
-            log4jProperties.setProperty("log4j.rootLogger", "INFO, stdout,file");
-            log4jProperties.setProperty("log4j.appender.stdout", "org.apache.log4j.ConsoleAppender");
-            log4jProperties.setProperty("log4j.appender.stdout.Target", "System.out");
-            log4jProperties.setProperty("log4j.appender.stdout.layout", "org.apache.log4j.PatternLayout");
-            log4jProperties.setProperty("log4j.appender.stdout.layout.ConversionPattern", "%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
-            log4jProperties.setProperty("log4j.appender.file", "org.apache.log4j.RollingFileAppender");
-            log4jProperties.setProperty("log4j.appender.file.File", "log_file.log");
-            log4jProperties.setProperty("log4j.appender.file.MaxFileSize", "5MB");
-            log4jProperties.setProperty("log4j.appender.file.layout", "org.apache.log4j.PatternLayout");
-            log4jProperties.setProperty("log4j.appender.file.layout.ConversionPattern", "%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
+        Properties log4jProperties = new Properties();
+        log4jProperties.setProperty("log4j.rootLogger", "INFO, stdout,file");
+        log4jProperties.setProperty("log4j.appender.stdout", "org.apache.log4j.ConsoleAppender");
+        log4jProperties.setProperty("log4j.appender.stdout.Target", "System.out");
+        log4jProperties.setProperty("log4j.appender.stdout.layout", "org.apache.log4j.PatternLayout");
+        log4jProperties.setProperty("log4j.appender.stdout.layout.ConversionPattern", "%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
+        log4jProperties.setProperty("log4j.appender.file", "org.apache.log4j.RollingFileAppender");
+        log4jProperties.setProperty("log4j.appender.file.File", "log_file.log");
+        log4jProperties.setProperty("log4j.appender.file.MaxFileSize", "5MB");
+        log4jProperties.setProperty("log4j.appender.file.layout", "org.apache.log4j.PatternLayout");
+        log4jProperties.setProperty("log4j.appender.file.layout.ConversionPattern", "%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n");
 
-            PropertyConfigurator.configure(log4jProperties);
+        PropertyConfigurator.configure(log4jProperties);
 
-            if(args.length != 0){
-                PATH = args[0];
-                launch(args);
-            }
-            else{
-                logger.error("Choose directory");
-            }
+        if (args.length != 0) {
+            PATH = args[0];
+            launch(args);
+        } else {
+            logger.error("Choose directory");
         }
+    }
 }

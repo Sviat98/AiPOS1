@@ -1,6 +1,5 @@
 package model;
 
-import commands.CommandName;
 import javafx.collections.ObservableList;
 import org.apache.james.mime4j.message.BodyPart;
 import org.junit.After;
@@ -13,12 +12,11 @@ import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.util.ArrayList;
 
-import static commands.CommandCreator.createCommand;
 import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.mock;
 
 public class POP3ConnectionTest {
-    POP3Connection pop3Connection = mock(POP3Connection.class);
+    private POP3Connection pop3Connection;
 
     SSLSocketFactory factory;
     SSLSocket socket;
@@ -39,6 +37,9 @@ public class POP3ConnectionTest {
     @Before
     public void setUp() throws IOException, POP3ConnectionException {
 
+        pop3Connection = new POP3Connection();
+
+
         factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
         socket = (SSLSocket) factory.createSocket("pop.mail.ru", Integer.parseInt("995"));
         inputStream = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -49,6 +50,7 @@ public class POP3ConnectionTest {
         data = inputStream.readLine();
         result.append(data + "\n");
         response = result.toString();
+
     }
 
     @Test
@@ -129,7 +131,7 @@ public class POP3ConnectionTest {
 
         pop3Connection.sendCommand(command3);
         pop3Connection.createMessage();
-        pop3Connection.saveMessage("1 2");
+       // pop3Connection.saveMessage("1 2");
 
         int expected = -85582543;
         int actual = pop3Connection.getResultMessage().hashCode();

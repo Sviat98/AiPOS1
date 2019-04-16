@@ -4,6 +4,7 @@ import model.POP3Connection;
 import model.POP3ConnectionException;
 import org.junit.Test;
 
+import static commands.CommandCreator.createCommand;
 import static junit.framework.TestCase.assertEquals;
 
 public class DeleTest {
@@ -15,11 +16,14 @@ public class DeleTest {
 
         String command = "USER POP3Irina@mail.ru\n";
         connection.sendCommand(command);
+        assertEquals("+OK\n", connection.getResponse());
 
         String command1 = "PASS POP12345\n";
         connection.sendCommand(command1);
+        assertEquals("+OK Welcome!\n", connection.getResponse());
 
-        String command2 = "DELE 2\n";
+        String command2 = createCommand(CommandName.DELE, "2");
+        //String command2 = "DELE 2\n";
         connection.sendCommand(command2);
         assertEquals("+OK message 2 deleted\n", connection.getResponse());
 
